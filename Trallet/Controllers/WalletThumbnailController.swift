@@ -10,6 +10,8 @@ import UIKit
 class WalletThumbnailController: UIViewController {
     // Previous page
     var newWalletView: NewWalletController!
+    var thumb: String!
+    var bgColor: UIColor!
     
     // Bar Button Item
     @IBOutlet weak var barBtnDone: UIBarButtonItem!
@@ -33,6 +35,8 @@ class WalletThumbnailController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        circleThumb.backgroundColor = bgColor
+        tfIcon.text = thumb
         enableTextEmoji(true)
         tfIcon.becomeFirstResponder()
         tfIcon.delegate = self
@@ -70,6 +74,8 @@ class WalletThumbnailController: UIViewController {
             if sender.isEqual(self.barBtnDone) {
                 // Background dan thumbnail akan dikembalikan ke halaman sebelumnya
                 self.newWalletView.changeThumb(thumb: self.tfIcon.text!, bg: self.circleThumb.backgroundColor!)
+                self.newWalletView.thumbBG = self.circleThumb.backgroundColor!
+                self.newWalletView.thumbTxt = self.tfIcon.text!
             }
         }
     }

@@ -12,12 +12,16 @@ class NewWalletHeaderCell: UITableViewCell {
     
     @IBOutlet weak var lblThumbnail: UILabel!
     @IBOutlet weak var bgThumbnail: CircleThumbnailView!
+    @IBOutlet weak var tfWalletName: UITextField!
+    
+    var headerDelegate: NewWalletHeaderDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         bgThumbnail.addGestureRecognizer(tap)
+        tfWalletName.delegate = self
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
@@ -29,5 +33,19 @@ class NewWalletHeaderCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
 
+extension NewWalletHeaderCell: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        headerDelegate?.passWalletName(walletName: "\(textField.text!)\(string)")
+        return true
+    }
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        print("Ended editing. Text captured: \(textField.text!)")
+        headerDelegate?.passWalletName(walletName: "\(textField.text!)")
+    }
+}
+
+protocol NewWalletHeaderDelegate {
+    func passWalletName(walletName name: String?)
 }

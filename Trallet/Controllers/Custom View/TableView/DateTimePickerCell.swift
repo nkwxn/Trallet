@@ -7,11 +7,27 @@
 
 import UIKit
 
-class DateTimePickerCell: UITableViewCell {
+enum DateTimeCategory: String {
+    case dateExchanged = "Cash exchanged on"
+    case dateTimeTransaction = "Date & Time"
+}
 
+class DateTimePickerCell: UITableViewCell {
+    var relatedView: UITableViewController!
+    var category: DateTimeCategory! {
+        didSet {
+            titleLabel.text = category.rawValue
+        }
+    }
+
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        titleLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
+        datePicker.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -21,3 +37,6 @@ class DateTimePickerCell: UITableViewCell {
     }
 
 }
+
+// MARK: - DatePicker Delegate Method
+

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D51B2ED6263C19B2004D5413 /* CurrencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B2ED5263C19B2004D5413 /* CurrencyPicker.swift */; };
+		D51B2ED8263C4522004D5413 /* MoneyConversionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B2ED7263C4522004D5413 /* MoneyConversionCell.swift */; };
 		D529A75D26391F93009D118A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D529A75C26391F93009D118A /* AppDelegate.swift */; };
 		D529A75F26391F93009D118A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D529A75E26391F93009D118A /* SceneDelegate.swift */; };
 		D529A76126391F93009D118A /* TripWallets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D529A76026391F93009D118A /* TripWallets.swift */; };
@@ -14,6 +16,11 @@
 		D529A76726391F93009D118A /* Trallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D529A76526391F93009D118A /* Trallet.xcdatamodeld */; };
 		D529A76926391F95009D118A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D529A76826391F95009D118A /* Assets.xcassets */; };
 		D529A76C26391F95009D118A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D529A76A26391F95009D118A /* LaunchScreen.storyboard */; };
+		D5358A56263DA21800332F7A /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5358A55263DA21800332F7A /* JSONModel.swift */; };
+		D54F1051263C5FC500E42BCF /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F1050263C5FC500E42BCF /* CoreDataHelper.swift */; };
+		D5664E09263BF08500DCB7F6 /* WalletStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5664E08263BF08500DCB7F6 /* WalletStatusCell.swift */; };
+		D5664E0B263C062600DCB7F6 /* WalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5664E0A263C062600DCB7F6 /* WalletCell.swift */; };
+		D5664E0D263C0D6200DCB7F6 /* AmountMoneyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5664E0C263C0D6200DCB7F6 /* AmountMoneyCell.swift */; };
 		D5B8E985263A652100BC192F /* NewWalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8E984263A652100BC192F /* NewWalletController.swift */; };
 		D5B8E988263A676E00BC192F /* WalletThumbnailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8E987263A676E00BC192F /* WalletThumbnailController.swift */; };
 		D5B8E98B263A69C600BC192F /* WalletDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8E98A263A69C600BC192F /* WalletDetailController.swift */; };
@@ -27,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D51B2ED5263C19B2004D5413 /* CurrencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPicker.swift; sourceTree = "<group>"; };
+		D51B2ED7263C4522004D5413 /* MoneyConversionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyConversionCell.swift; sourceTree = "<group>"; };
 		D529A75926391F93009D118A /* Trallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D529A75C26391F93009D118A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D529A75E26391F93009D118A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +45,11 @@
 		D529A76826391F95009D118A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D529A76B26391F95009D118A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D529A76D26391F95009D118A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5358A55263DA21800332F7A /* JSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
+		D54F1050263C5FC500E42BCF /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		D5664E08263BF08500DCB7F6 /* WalletStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletStatusCell.swift; sourceTree = "<group>"; };
+		D5664E0A263C062600DCB7F6 /* WalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCell.swift; sourceTree = "<group>"; };
+		D5664E0C263C0D6200DCB7F6 /* AmountMoneyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountMoneyCell.swift; sourceTree = "<group>"; };
 		D5B8E984263A652100BC192F /* NewWalletController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletController.swift; sourceTree = "<group>"; };
 		D5B8E987263A676E00BC192F /* WalletThumbnailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletThumbnailController.swift; sourceTree = "<group>"; };
 		D5B8E98A263A69C600BC192F /* WalletDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailController.swift; sourceTree = "<group>"; };
@@ -113,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				D529A76526391F93009D118A /* Trallet.xcdatamodeld */,
+				D54F1050263C5FC500E42BCF /* CoreDataHelper.swift */,
+				D5358A55263DA21800332F7A /* JSONModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,6 +150,7 @@
 				D5B8E999263A8CE900BC192F /* TableView */,
 				D5B8E99A263A8D1100BC192F /* CircleThumbnailView.swift */,
 				D5B8E9A7263ABC2500BC192F /* CircularButton.swift */,
+				D51B2ED5263C19B2004D5413 /* CurrencyPicker.swift */,
 			);
 			path = "Custom View";
 			sourceTree = "<group>";
@@ -144,6 +161,10 @@
 				D5B8E99E263A8D3400BC192F /* NewWalletHeaderCell.swift */,
 				D5B8E9A1263A966300BC192F /* SwitchCell.swift */,
 				D5B8E9A4263A96A900BC192F /* DateTimePickerCell.swift */,
+				D5664E08263BF08500DCB7F6 /* WalletStatusCell.swift */,
+				D5664E0A263C062600DCB7F6 /* WalletCell.swift */,
+				D5664E0C263C0D6200DCB7F6 /* AmountMoneyCell.swift */,
+				D51B2ED7263C4522004D5413 /* MoneyConversionCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -222,11 +243,18 @@
 				D5B8E98B263A69C600BC192F /* WalletDetailController.swift in Sources */,
 				D529A76126391F93009D118A /* TripWallets.swift in Sources */,
 				D529A75D26391F93009D118A /* AppDelegate.swift in Sources */,
+				D5664E0B263C062600DCB7F6 /* WalletCell.swift in Sources */,
 				D5B8E988263A676E00BC192F /* WalletThumbnailController.swift in Sources */,
+				D51B2ED6263C19B2004D5413 /* CurrencyPicker.swift in Sources */,
+				D5664E09263BF08500DCB7F6 /* WalletStatusCell.swift in Sources */,
 				D5B8E9A2263A966300BC192F /* SwitchCell.swift in Sources */,
+				D51B2ED8263C4522004D5413 /* MoneyConversionCell.swift in Sources */,
+				D54F1051263C5FC500E42BCF /* CoreDataHelper.swift in Sources */,
+				D5358A56263DA21800332F7A /* JSONModel.swift in Sources */,
 				D5B8E9A8263ABC2500BC192F /* CircularButton.swift in Sources */,
 				D5B8E9A5263A96A900BC192F /* DateTimePickerCell.swift in Sources */,
 				D5B8E98E263A6B1C00BC192F /* NewTransactionController.swift in Sources */,
+				D5664E0D263C0D6200DCB7F6 /* AmountMoneyCell.swift in Sources */,
 				D529A75F26391F93009D118A /* SceneDelegate.swift in Sources */,
 				D5B8E99B263A8D1100BC192F /* CircleThumbnailView.swift in Sources */,
 				D5B8E99F263A8D3400BC192F /* NewWalletHeaderCell.swift in Sources */,
@@ -308,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -363,7 +391,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

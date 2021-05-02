@@ -8,11 +8,26 @@
 import UIKit
 
 class NewWalletController: UITableViewController {
+    var walletCollections: TripWallets!
+    var cdHelper: CoreDataHelper!
+    
     @IBOutlet weak var btnDone: UIBarButtonItem!
     
     var goingOverseas: Bool = false
     var planningUseCC: Bool = false
-
+    
+    // Variables for Core Data Stack Input
+    var thumbBG: UIColor?
+    var thumbTxt: String?
+    var walletName: String?
+    var baseCurrency: String?
+    var baseCash: Double?
+    var originCurrency: String?
+    var originCash: Double?
+    var moneyChangedDate: Date?
+    var ccCurrency: String?
+    var ccLimit: Double?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,21 +40,55 @@ class NewWalletController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        thumbBG = #colorLiteral(red: 0.5882352941, green: 0.6078431373, blue: 0.6470588235, alpha: 1)
+        thumbTxt = ""
+        tableView.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        print("View disappeared")
     }
     
     // MARK: - Bar Button Pressed
     @IBAction func barButtonPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true) {
-            // TODO: If button pressed done, create new wallet on Core Data Stack
+        if sender.isEqual(self.btnDone) {
+            // Unwrapping the optional value
+            if let thumbBG = thumbBG,
+               let thumbTxt = thumbTxt,
+               let walletName = walletName,
+               let baseCurrency = baseCurrency,
+               let baseCash = baseCash {
+                if !goingOverseas {
+                    originCurrency = nil
+                    originCash = nil
+                    moneyChangedDate = nil
+                }
+                if !planningUseCC {
+                    ccLimit = nil
+                    ccCurrency = nil
+                }
+                self.dismiss(animated: true) {
+                    self.cdHelper.createNewWallet(thumbBackground: thumbBG, thumbText: thumbTxt, name: walletName, baseCurrency: baseCurrency, baseCash: baseCash, originCurrency: self.originCurrency, originCash: self.originCash, moneyChangedDate: self.moneyChangedDate, ccCurrency: self.ccCurrency, ccLimit: self.ccLimit)
+                    self.walletCollections.tableView.reloadData()
+                }
+            } else {
+                showAlert()
+            }
+            
+        } else {
+            self.dismiss(animated: true)
         }
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+    func showAlert() {
+        let alertView = UIAlertController(title: "Unable to create new wallet", message: "Please check all of the required fields", preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "Okay", style: .default))
+        self.present(alertView, animated: true)
     }
+    
+    // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -53,6 +102,7 @@ class NewWalletController: UITableViewController {
 
             // Configure the cell...
             cell.newWalletView = self
+            cell.headerDelegate = self
 
             return cell
         case 1:
@@ -62,16 +112,24 @@ class NewWalletController: UITableViewController {
             cell.switchEnum = .goingOverseas
             cell.newWalletView = self
             return cell
-        case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CashExchangedDate", for: indexPath)
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyAmountInput", for: indexPath) as! AmountMoneyCell
 
             // Configure the cell...
+            cell.enumWallet = .cash
+            cell.amountDelegate = self
+
+            return cell
+        case 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CashExchangedDate", for: indexPath) as! DateTimePickerCell
+            cell.category = .dateExchanged
             
             return cell
         case 4:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "GoingOverseasExchangeRow", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "GoingOverseasExchangeRow", for: indexPath) as! MoneyConversionCell
 
             // Configure the cell...
+            cell.conversionDelegate = self
             
             return cell
         case 5:
@@ -80,6 +138,14 @@ class NewWalletController: UITableViewController {
             // Configure the cell...
             cell.switchEnum = .planUseCC
             cell.newWalletView = self
+            return cell
+        case 6:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyAmountInput", for: indexPath) as! AmountMoneyCell
+
+            // Configure the cell...
+            cell.enumWallet = .cc
+            cell.amountDelegate = self
+
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyAmountInput", for: indexPath)
@@ -98,7 +164,9 @@ class NewWalletController: UITableViewController {
         case 2:
             return goingOverseas ? 0.0 : 85.0
         case 3:
-            return goingOverseas ? 57 : 0.0
+            // Date Picker
+//            return goingOverseas ? 57 : 0.0
+            return 0
         case 4:
             return goingOverseas ? 225 : 0
         case 6:
@@ -110,58 +178,20 @@ class NewWalletController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
+        return UIView(frame: CGRect(x: 0, y: 0, width: 150, height: CGFloat.leastNormalMagnitude))
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil
+        return UIView(frame: CGRect(x: 0, y: 0, width: 150, height: CGFloat.leastNormalMagnitude))
     }
     
-    /*
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        return CGFloat.leastNonzeroMagnitude
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
+        return CGFloat.leastNonzeroMagnitude
     }
- */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     
     // MARK: - Navigation
 
@@ -173,7 +203,10 @@ class NewWalletController: UITableViewController {
         case "changeImage":
             let dest = segue.destination as! UINavigationController
             let thumb = dest.viewControllers[0] as! WalletThumbnailController
+            let firstRow = self.tableView.visibleCells[0] as! NewWalletHeaderCell
             thumb.newWalletView = self
+            thumb.bgColor = firstRow.bgThumbnail.backgroundColor
+            thumb.thumb = firstRow.lblThumbnail.text
         default:
             print("Segue not identified")
         }
@@ -186,4 +219,34 @@ class NewWalletController: UITableViewController {
         firstRow.lblThumbnail.text = thumb
     }
 
+}
+
+// MARK: - Extension for Delegate Methods
+
+extension NewWalletController: NewWalletHeaderDelegate, AmountMoneyDelegate, MoneyConversionDelegate {
+    
+    // Getting the conversion data
+    func moneyConversionStack(baseCurrency: String?, baseAmount: Double?, originCurrency: String?, originAmount: Double?) {
+        self.baseCurrency = baseCurrency
+        self.baseCash = baseAmount
+        self.originCurrency = originCurrency
+        self.originCash = originAmount
+    }
+    
+    func sendData(_ walletStatus: WalletStatusType, currencyCode: String?, amount: Double?) {
+        switch walletStatus {
+        case .cash:
+            baseCurrency = currencyCode!
+            baseCash = amount ?? nil
+            print(baseCurrency!)
+        case .cc:
+            ccCurrency = currencyCode!
+            ccLimit = amount!
+        }
+    }
+    
+    func passWalletName(walletName name: String?) {
+        self.walletName = name
+    }
+    
 }
