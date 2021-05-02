@@ -8,6 +8,15 @@
 import UIKit
 
 class NewTransactionController: UITableViewController {
+    // Data passed through and set into a controller
+    var previousPage: WalletDetailController!
+    var cdHelper: CoreDataHelper!
+    var cdWallet: Wallet! {
+        didSet {
+            print(cdWallet)
+        }
+    }
+    
     @IBOutlet weak var btnDone: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -22,14 +31,24 @@ class NewTransactionController: UITableViewController {
     
     // Top bar button
     @IBAction func BarButtonPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true) {
-            // If sender is Done Button, update core data stack
-            if sender.isEqual(self.btnDone) {
-                
+        if sender.isEqual(self.btnDone) {
+            // If any field is empty, show alert message unable to add new transaction
+            if false {
+//                cdHelper.createTransaction(for: <#T##TransactionType#>, category: <#T##String#>, amount: <#T##Double#>, location: <#T##String?#>, attachments: <#T##[UIImage]?#>)
+            } else {
+                showAlert()
             }
+        } else {
+            self.dismiss(animated: true)
         }
     }
     
+    // Show the alert
+    func showAlert() {
+        let alertView = UIAlertController(title: "Unable to create new transaction", message: "Please check all of the required fields", preferredStyle: .alert)
+        alertView.addAction(UIAlertAction(title: "Okay", style: .default))
+        self.present(alertView, animated: true)
+    }
 
     // MARK: - Table view data source
     

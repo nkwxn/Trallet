@@ -12,10 +12,15 @@ class WalletCell: UITableViewCell {
     var cdWallet: Wallet! {
         // Set all of the text field and
         didSet {
+            let nf = NumberFormatter()
+            nf.numberStyle = .decimal
+            nf.minimumFractionDigits = 2
+            nf.maximumFractionDigits = 2
+            
             thumbnailBG.backgroundColor = cdWallet.walletThumbBG as? UIColor
             circleThumbnailLabel.text = cdWallet.walletThumb
             walletName.text = cdWallet.walletName
-            walletBalance.text = "\(String(describing: cdWallet.walletBaseCurrency!)) \(String(format: "%.2f", cdWallet.walletBaseBalance))"
+            walletBalance.text = "\(String(describing: cdWallet.walletBaseCurrency!)) \(nf.string(from: NSNumber(value: cdWallet.walletBaseBalance))!)"
         }
     }
     

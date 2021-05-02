@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TransactionHistoryFooter" customModule="Trallet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="413" height="93"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tKu-Cg-2sJ">
+                    <rect key="frame" x="20" y="0.0" width="373" height="93"/>
+                    <color key="backgroundColor">
+                        <string key="name" base64-UTF8="YES">
+Q2FyZEJhY2tncm91bmQQQ29sb3I
+</string>
+                    </color>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="tKu-Cg-2sJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="8v4-cW-Reh"/>
+                <constraint firstAttribute="bottomMargin" secondItem="tKu-Cg-2sJ" secondAttribute="bottom" id="HoI-Va-Rcb"/>
+                <constraint firstAttribute="trailingMargin" secondItem="tKu-Cg-2sJ" secondAttribute="trailing" id="OUN-tM-DQk"/>
+                <constraint firstItem="tKu-Cg-2sJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rw8-49-QDE"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="view" destination="tKu-Cg-2sJ" id="9Gd-Fx-EYP"/>
+            </connections>
+            <point key="canvasLocation" x="131.15942028985509" y="183.14732142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor>
+            <string key="name" base64-UTF8="YES">
+Q2FyZEJhY2tncm91bmQQQ29sb3I
+</string>
+            <color red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

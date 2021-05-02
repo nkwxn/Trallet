@@ -17,6 +17,10 @@
 		D529A76926391F95009D118A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D529A76826391F95009D118A /* Assets.xcassets */; };
 		D529A76C26391F95009D118A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D529A76A26391F95009D118A /* LaunchScreen.storyboard */; };
 		D5358A56263DA21800332F7A /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5358A55263DA21800332F7A /* JSONModel.swift */; };
+		D5358A5A263E6AC300332F7A /* TransactionHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5358A58263E6AC300332F7A /* TransactionHistoryCell.swift */; };
+		D5358A5B263E6AC300332F7A /* TransactionHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5358A59263E6AC300332F7A /* TransactionHistoryCell.xib */; };
+		D5358A5D263EA10000332F7A /* TransactionHistoryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5358A5C263EA10000332F7A /* TransactionHistoryHeader.xib */; };
+		D5358A61263EB91400332F7A /* TransactionFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5358A60263EB91400332F7A /* TransactionFooter.xib */; };
 		D54F1051263C5FC500E42BCF /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F1050263C5FC500E42BCF /* CoreDataHelper.swift */; };
 		D5664E09263BF08500DCB7F6 /* WalletStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5664E08263BF08500DCB7F6 /* WalletStatusCell.swift */; };
 		D5664E0B263C062600DCB7F6 /* WalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5664E0A263C062600DCB7F6 /* WalletCell.swift */; };
@@ -46,6 +50,10 @@
 		D529A76B26391F95009D118A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D529A76D26391F95009D118A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5358A55263DA21800332F7A /* JSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
+		D5358A58263E6AC300332F7A /* TransactionHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryCell.swift; sourceTree = "<group>"; };
+		D5358A59263E6AC300332F7A /* TransactionHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionHistoryCell.xib; sourceTree = "<group>"; };
+		D5358A5C263EA10000332F7A /* TransactionHistoryHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionHistoryHeader.xib; sourceTree = "<group>"; };
+		D5358A60263EB91400332F7A /* TransactionFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionFooter.xib; sourceTree = "<group>"; };
 		D54F1050263C5FC500E42BCF /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		D5664E08263BF08500DCB7F6 /* WalletStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletStatusCell.swift; sourceTree = "<group>"; };
 		D5664E0A263C062600DCB7F6 /* WalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCell.swift; sourceTree = "<group>"; };
@@ -100,9 +108,38 @@
 			path = Trallet;
 			sourceTree = "<group>";
 		};
+		D5358A57263E6A6B00332F7A /* Transaction History Table Set */ = {
+			isa = PBXGroup;
+			children = (
+				D5358A59263E6AC300332F7A /* TransactionHistoryCell.xib */,
+				D5358A5C263EA10000332F7A /* TransactionHistoryHeader.xib */,
+				D5358A60263EB91400332F7A /* TransactionFooter.xib */,
+			);
+			path = "Transaction History Table Set";
+			sourceTree = "<group>";
+		};
+		D5358A62263EF94200332F7A /* New Wallet View */ = {
+			isa = PBXGroup;
+			children = (
+				D5B8E99E263A8D3400BC192F /* NewWalletHeaderCell.swift */,
+				D5B8E9A1263A966300BC192F /* SwitchCell.swift */,
+				D5664E0C263C0D6200DCB7F6 /* AmountMoneyCell.swift */,
+				D51B2ED7263C4522004D5413 /* MoneyConversionCell.swift */,
+			);
+			path = "New Wallet View";
+			sourceTree = "<group>";
+		};
+		D5358A63263EF9AD00332F7A /* Wallet Status View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Wallet Status View";
+			sourceTree = "<group>";
+		};
 		D5B8E978263A629800BC192F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D5358A57263E6A6B00332F7A /* Transaction History Table Set */,
 				D529A76226391F93009D118A /* Main.storyboard */,
 				D529A76A26391F95009D118A /* LaunchScreen.storyboard */,
 			);
@@ -158,13 +195,12 @@
 		D5B8E999263A8CE900BC192F /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				D5B8E99E263A8D3400BC192F /* NewWalletHeaderCell.swift */,
-				D5B8E9A1263A966300BC192F /* SwitchCell.swift */,
+				D5358A62263EF94200332F7A /* New Wallet View */,
+				D5358A58263E6AC300332F7A /* TransactionHistoryCell.swift */,
+				D5358A63263EF9AD00332F7A /* Wallet Status View */,
 				D5B8E9A4263A96A900BC192F /* DateTimePickerCell.swift */,
 				D5664E08263BF08500DCB7F6 /* WalletStatusCell.swift */,
 				D5664E0A263C062600DCB7F6 /* WalletCell.swift */,
-				D5664E0C263C0D6200DCB7F6 /* AmountMoneyCell.swift */,
-				D51B2ED7263C4522004D5413 /* MoneyConversionCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -227,8 +263,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D529A76C26391F95009D118A /* LaunchScreen.storyboard in Resources */,
+				D5358A61263EB91400332F7A /* TransactionFooter.xib in Resources */,
 				D529A76926391F95009D118A /* Assets.xcassets in Resources */,
 				D529A76426391F93009D118A /* Main.storyboard in Resources */,
+				D5358A5D263EA10000332F7A /* TransactionHistoryHeader.xib in Resources */,
+				D5358A5B263E6AC300332F7A /* TransactionHistoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +281,7 @@
 				D529A76726391F93009D118A /* Trallet.xcdatamodeld in Sources */,
 				D5B8E98B263A69C600BC192F /* WalletDetailController.swift in Sources */,
 				D529A76126391F93009D118A /* TripWallets.swift in Sources */,
+				D5358A5A263E6AC300332F7A /* TransactionHistoryCell.swift in Sources */,
 				D529A75D26391F93009D118A /* AppDelegate.swift in Sources */,
 				D5664E0B263C062600DCB7F6 /* WalletCell.swift in Sources */,
 				D5B8E988263A676E00BC192F /* WalletThumbnailController.swift in Sources */,

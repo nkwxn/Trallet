@@ -241,7 +241,7 @@ extension NewWalletController: NewWalletHeaderDelegate, AmountMoneyDelegate, Mon
             print(baseCurrency!)
         case .cc:
             ccCurrency = currencyCode!
-            ccLimit = amount!
+            ccLimit = amount ?? nil
         }
     }
     

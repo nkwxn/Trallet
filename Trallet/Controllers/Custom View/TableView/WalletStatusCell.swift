@@ -13,6 +13,14 @@ enum WalletStatusType: String {
 }
 
 class WalletStatusCell: UITableViewCell {
+    var nf: NumberFormatter! {
+        didSet {
+            nf.numberStyle = .decimal
+            nf.minimumFractionDigits = 2
+            nf.maximumFractionDigits = 2
+        }
+    }
+    
     // Wallet status type
     var enumWalletStat: WalletStatusType! {
         didSet {
@@ -30,6 +38,42 @@ class WalletStatusCell: UITableViewCell {
             }
             print(totalStackView.frame.size.height
             )
+        }
+    }
+    
+    // CD Object
+    var cdWallet: Wallet! {
+        didSet {
+            switch enumWalletStat {
+            case .cash:
+                // Show balance and conversion currency base
+                baseCurrencyBalanceLabel.text = nf.string(from: NSNumber(value: cdWallet.walletBaseBalance))
+                baseCurrencyLabel.text = cdWallet.walletBaseCurrency
+                
+                if let homeCurrency = cdWallet.walletOriginCurrency {
+                    homeCurrencyLabel.text = homeCurrency
+                    homeCurrencyBalanceLabel.text = nf.string(from: NSNumber(value: cdWallet.walletOriginConvertionCash))
+                } else {
+                    exchangedLimitHeight.constant = 0
+                }
+                
+                totalIncomeLabel.text = "\(cdWallet.walletBaseCurrency!) \(nf.string(from: NSNumber(value: cdWallet.walletCashTotalIncome))!)"
+                totalExpenseLabel.text = "\(cdWallet.walletBaseCurrency!) \(nf.string(from: NSNumber(value: cdWallet.walletCashTotalExpense))!)"
+            case .cc:
+                // Show balance and conversion currency base
+                baseCurrencyBalanceLabel.text = nf.string(from: NSNumber(value: cdWallet.walletCreditCardExpense))
+                baseCurrencyLabel.text = cdWallet.walletBaseCurrency
+                
+                if let ccCurrency = cdWallet.walletCreditCardCurrency {
+                    homeCurrencyLabel.text = ccCurrency
+                    homeCurrencyBalanceLabel.text = nf.string(from: NSNumber(value: cdWallet.walletCreditCardLimit))
+                } else {
+                    exchangedLimitHeight.constant = 0
+                }
+            case .none:
+                print("none")
+            }
+            
         }
     }
     

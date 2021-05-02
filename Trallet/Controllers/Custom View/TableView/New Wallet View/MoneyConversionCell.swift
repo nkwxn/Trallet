@@ -119,6 +119,8 @@ extension MoneyConversionCell: CurrencyPickerDelegate, UITextFieldDelegate {
                                 let originAmount = targetAmount * (originRate / targetRate)
                                 self.originAmountTF.text = String(format: "%.2f", originAmount)
                             }
+                            
+                            self.conversionDelegate?.moneyConversionStack(baseCurrency: self.targetCurrencyTF.text, baseAmount: Double(self.targetAmountTF.text ?? ""), originCurrency: self.originCurencyTF.text, originAmount: Double(self.originAmountTF.text ?? ""))
                         }
                     } catch {
                         print(error)

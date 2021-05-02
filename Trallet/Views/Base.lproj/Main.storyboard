@@ -52,7 +52,7 @@
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dompet Indo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOt-DC-Lu5">
                                                     <rect key="frame" x="86" y="8" width="231" height="39"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -61,7 +61,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="cRF-UJ-pJx"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -75,7 +75,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDR 100,000.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18i-lJ-A4k">
                                                     <rect key="frame" x="86" y="63" width="231" height="23"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -360,7 +360,7 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                     <outlet property="walletType" destination="eDe-Lh-TBq" id="D7m-rS-RV7"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TransactionHistoryCell" id="BoV-8E-bXg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TransactionHistoryTitleHeader" id="BoV-8E-bXg">
                                 <rect key="frame" x="0.0" y="286" width="390" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BoV-8E-bXg" id="AUe-dY-Gt5">
@@ -390,7 +390,7 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                     <navigationItem key="navigationItem" title="My Wallet Name" largeTitleDisplayMode="never" id="1QL-5E-TQl">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="gIy-DP-ubx">
                             <connections>
-                                <segue destination="iFj-1o-2TG" kind="presentation" id="Fs9-2x-56j"/>
+                                <segue destination="iFj-1o-2TG" kind="presentation" identifier="OpenNewTrasaction" id="Fs9-2x-56j"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -628,7 +628,11 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                 <action selector="BarButtonPressed:" destination="Xcb-DH-eaU" id="Ktb-2K-2yy"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Tt4-23-nOC"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Tt4-23-nOC">
+                            <connections>
+                                <action selector="BarButtonPressed:" destination="Xcb-DH-eaU" id="qpL-rN-7gB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnDone" destination="Tt4-23-nOC" id="stX-UQ-f8X"/>

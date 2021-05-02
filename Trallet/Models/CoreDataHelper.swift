@@ -82,7 +82,17 @@ class CoreDataHelper {
     }
     
     // MARK: - UPDATE Methods for Wallet
-    func updateWalletBalance(at index: Int, amount: Double) {
+    func updateWalletBalance(_ type: TransactionType, at index: Int, amount: Double) {
+        
+        save()
+    }
+    
+    func updateTotal(_ type: TransactionType, at index: Int, amount: Double) {
+        
+        save()
+    }
+    
+    func updateCCExpense(at index: Int, amount: Double) {
         
         save()
     }
@@ -105,6 +115,69 @@ class CoreDataHelper {
     
     // MARK: - READ Methods for Transaction
     // Sort and return array
+    func getTransactionsHeader(for wallet: Wallet) -> [Date] {
+        var header = [Date]()
+        
+        // Looping the original transaction header
+        transactionsArray.sort { left, right in
+            guard let leftDate = left.transDateTime else { return true }
+            guard let rightDate = right.transDateTime else { return true }
+            return leftDate < rightDate
+        }
+        
+        for tran in transactionsArray {
+            guard let safeParent = tran.parentWallet else { return header }
+            if safeParent.isEqual(wallet) {
+                guard let dateTime = tran.transDateTime else { return header }
+                
+                if let lastIndex = header.last {
+                    if lastIndex != dateTime {
+                        header.append(dateTime)
+                    }
+                } else {
+                    header.append(dateTime)
+                }
+            }
+        }
+        return header
+    }
+    
+    func readAllTransactions(for wallet: Wallet) -> [[Transaction]]  {
+        var transaction = [[Transaction]]()
+        
+        // Looping the original transaction header
+        transactionsArray.sort { left, right in
+            guard let leftDate = left.transDateTime else { return true }
+            guard let rightDate = right.transDateTime else { return true }
+            return leftDate < rightDate
+        }
+        
+        var tranDaily = [Transaction]()
+        
+        for tran in transactionsArray {
+            guard let safeParent = tran.parentWallet else { return transaction }
+            if safeParent.isEqual(wallet) {
+                guard let tranDate = tran.transDateTime else {
+                    return transaction
+                }
+                let dateHeader = getTransactionsHeader(for: wallet)
+                for date in dateHeader {
+                    if date == tranDate {
+                        tranDaily.append(tran)
+                    } else {
+                        transaction.append(tranDaily)
+                        tranDaily.removeAll()
+                        tranDaily.append(tran)
+                    }
+                }
+            }
+        }
+        
+        transaction.append(tranDaily)
+        
+        return transaction
+        
+    }
     
     // MARK: - UPDATE Methods for Transaction
     // Ini mending gimana yak...

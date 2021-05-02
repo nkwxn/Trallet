@@ -15,6 +15,8 @@
         <attribute name="conversionRate" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="walletBaseBalance" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="walletBaseCurrency" attributeType="String"/>
+        <attribute name="walletCashTotalExpense" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="walletCashTotalIncome" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="walletCreationDate" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="walletCreditCardCurrency" optional="YES" attributeType="String"/>
         <attribute name="walletCreditCardExpense" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
@@ -27,6 +29,6 @@
     </entity>
     <elements>
         <element name="Transaction" positionX="105.8386840820312" positionY="-37.7220458984375" width="128" height="178"/>
-        <element name="Wallet" positionX="-358.9405517578125" positionY="-43.11566162109375" width="177.85107421875" height="223"/>
+        <element name="Wallet" positionX="-358.9405517578125" positionY="-43.11566162109375" width="177.85107421875" height="253"/>
     </elements>
 </model>
