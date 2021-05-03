@@ -43,8 +43,18 @@ class AmountMoneyCell: UITableViewCell {
         tfAmount.delegate = self
         
         tfCurrency.text = defaults.string(forKey: "homeCurrency")
+        
+        tfAmount.addTarget(self, action: #selector(AmountMoneyCell.textChanged(_:)), for: .editingChanged)
     }
 
+    @objc func textChanged(_ textField: UITextField) {
+        guard var text = textField.text else { return }
+        if text.contains(",") {
+            text.removeLast()
+            textField.text = "\(text)."
+        }
+        amountDelegate?.sendData(enumWallet, currencyCode: tfCurrency.text!, amount: Double("\(tfAmount.text!)"))
+    }
 }
 
 protocol AmountMoneyDelegate {
@@ -56,11 +66,6 @@ extension AmountMoneyCell: CurrencyPickerDelegate, UITextFieldDelegate {
     func pickerDidSelectRow(selected currencyCode: String) {
         tfCurrency.text = currencyCode
         defaults.set(currencyCode, forKey: "homeCurrency")
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        amountDelegate?.sendData(enumWallet, currencyCode: tfCurrency.text!, amount: Double("\(tfAmount.text!)\(string)"))
-        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {

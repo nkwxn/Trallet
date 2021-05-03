@@ -38,14 +38,13 @@ class WalletCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+        cardBackground.layer.cornerRadius = 8.0
+        cardBackground.layer.masksToBounds = true;
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-        cardBackground.layer.cornerRadius = 8.0
-        cardBackground.layer.masksToBounds = true;
     }
 }

@@ -7,7 +7,7 @@
         <attribute name="transDateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="transLocationKeyword" optional="YES" attributeType="String"/>
         <attribute name="transNotes" optional="YES" attributeType="String"/>
-        <attribute name="transPaymentMethod" optional="YES" attributeType="Transformable"/>
+        <attribute name="transPaymentMethod" optional="YES" attributeType="String"/>
         <attribute name="transType" attributeType="String"/>
         <relationship name="parentWallet" maxCount="1" deletionRule="Nullify" destinationEntity="Wallet"/>
     </entity>
@@ -28,7 +28,7 @@
         <attribute name="walletThumbBG" attributeType="Transformable"/>
     </entity>
     <elements>
-        <element name="Transaction" positionX="105.8386840820312" positionY="-37.7220458984375" width="128" height="178"/>
+        <element name="Transaction" positionX="105.8386840820312" positionY="-37.7220458984375" width="128" height="164"/>
         <element name="Wallet" positionX="-358.9405517578125" positionY="-43.11566162109375" width="177.85107421875" height="253"/>
     </elements>
 </model>

@@ -17,7 +17,7 @@ class TransactionCategoriesController: UITableViewController {
     var categoryTableViewCell: UITableViewCell!
     
     let arrCategories = [["Food", "Shopping", "Transport", "Others"], ["Top up"]]
-    let arrHeader = ["Expense", "Income"]
+    let arrHeader: [TransactionType] = [.expense, .income]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,7 @@ class TransactionCategoriesController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return arrHeader[section]
+        return arrHeader[section].rawValue
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -65,7 +65,6 @@ class TransactionCategoriesController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Code to go back and unwind to the tableview cell
         tableView.cellForRow(at: indexPath)?.isSelected = false
-        var categoryText: String = ""
         
         if arrCategories[indexPath.section][indexPath.row] == "Others" {
             let alert = UIAlertController(title: "Enter Category", message: "If you have chosen other expense category, please kindly fill the customized category name below:", preferredStyle: .alert)
@@ -73,23 +72,23 @@ class TransactionCategoriesController: UITableViewController {
                 txtField.placeholder = "Other category"
                 txtField.keyboardType = .default
             }
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
-                // Satan is dead
-            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             alert.addAction(UIAlertAction(title: "Done", style: .default) { _ in
                 // Push to back
                 guard var tfContent = alert.textFields![0].text else { return }
                 if tfContent.isEmpty {
                     tfContent = "Others"
                 }
-                self.categoryTableViewCell.detailTextLabel?.text = "\(self.arrHeader[indexPath.section]): \(tfContent)"
                 
+                self.categoryTableViewCell.detailTextLabel?.text = "\(self.arrHeader[indexPath.section].rawValue): \(tfContent)"
+                
+                self.newTransaction.unwindFromCategory(for: self.arrHeader[indexPath.section], catName: self.arrCategories[indexPath.section][indexPath.row])
                 self.navigationController?.popViewController(animated: true)
             })
             self.present(alert, animated: true)
         } else {
-            categoryTableViewCell.detailTextLabel?.text = "\(arrHeader[indexPath.section]): \(arrCategories[indexPath.section][indexPath.row])"
-            
+            categoryTableViewCell.detailTextLabel?.text = "\(arrHeader[indexPath.section].rawValue): \(arrCategories[indexPath.section][indexPath.row])"
+            newTransaction.unwindFromCategory(for: arrHeader[indexPath.section], catName: arrCategories[indexPath.section][indexPath.row])
             navigationController?.popViewController(animated: true)
         }
     }

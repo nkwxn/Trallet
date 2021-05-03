@@ -41,9 +41,9 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="DTz-Ic-FnO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="HlM-92-luE"/>
+                <constraint firstItem="DTz-Ic-FnO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="HlM-92-luE"/>
                 <constraint firstAttribute="bottom" secondItem="DTz-Ic-FnO" secondAttribute="bottom" id="KeD-lG-U8g"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DTz-Ic-FnO" secondAttribute="trailing" constant="20" id="U0t-IY-In9"/>
+                <constraint firstAttribute="trailingMargin" secondItem="DTz-Ic-FnO" secondAttribute="trailing" id="U0t-IY-In9"/>
                 <constraint firstItem="DTz-Ic-FnO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="enz-Zf-g9t"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

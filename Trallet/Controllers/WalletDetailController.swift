@@ -12,7 +12,6 @@ class WalletDetailController: UITableViewController {
     var cdWallet: Wallet! {
         didSet {
             // Get all of the data
-            print(cdWallet!)
             self.navigationItem.title = cdWallet.walletName
         }
     }
@@ -72,7 +71,6 @@ class WalletDetailController: UITableViewController {
         // First section which contains status
         case 0:
             if cdWallet.walletCreditCardCurrency == nil && cdWallet.walletCreditCardExpense == 0 {
-                print("Should show only wallet status")
                 switch indexPath.row {
                 case 0:
                     return showWalletStatus(.cash, data: cdWallet, forRow: indexPath)

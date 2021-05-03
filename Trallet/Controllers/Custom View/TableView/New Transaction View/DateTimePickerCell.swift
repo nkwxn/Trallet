@@ -14,12 +14,15 @@ enum DateTimeCategory: String {
 
 class DateTimePickerCell: UITableViewCell {
     var relatedView: UITableViewController!
+    
     var category: DateTimeCategory! {
         didSet {
             titleLabel.text = category.rawValue
         }
     }
 
+    var pickerDelegate: DateTimeCategoryDelegate?
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -28,15 +31,17 @@ class DateTimePickerCell: UITableViewCell {
         // Initialization code
         titleLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         datePicker.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
+        pickerDelegate?.fetchDateTime(datePicker.date)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func dateValueChanged(_ sender: UIDatePicker) {
+        print(sender.date)
+        pickerDelegate?.fetchDateTime(sender.date)
     }
 
 }
 
 // MARK: - DatePicker Delegate Method
-
+protocol DateTimeCategoryDelegate {
+    func fetchDateTime(_ dateTime: Date)
+}

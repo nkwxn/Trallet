@@ -44,8 +44,47 @@ class MoneyConversionCell: UITableViewCell {
         originCurencyTF.text = defaults.string(forKey: "homeCurrency")
         
         originCurrencyLabel.text = defaults.string(forKey: "homeCurrency")
+        
+        originAmountTF.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+        targetAmountTF.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+        originRateTF.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
+        targetRateTF.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
     }
-
+    
+    @objc func textChanged(_ textField: UITextField) {
+        guard var text = textField.text else { return }
+        if text.contains(",") {
+            text.removeLast()
+            textField.text = "\(text)."
+        }
+        
+        guard let originRate = Double(originRateTF.text ?? "") else { return }
+        guard let targetRate = Double(targetRateTF.text ?? "") else { return }
+        if textField == originAmountTF {
+            if let originAmount = Double(self.originAmountTF.text ?? "") {
+                let targetAmount = originAmount * (targetRate / originRate)
+                self.targetAmountTF.text = String(format: "%.2f", targetAmount)
+            }
+        } else if textField == targetAmountTF {
+            if let targetAmount = Double(self.targetAmountTF.text ?? "") {
+                let originAmount = targetAmount * (originRate / targetRate)
+                self.originAmountTF.text = String(format: "%.2f", originAmount)
+            }
+        } else { // Ini kalo rate origin atau target on
+            if let originAmount = Double(self.originAmountTF.text ?? "") {
+                let targetAmount = originAmount * (targetRate / originRate)
+                self.targetAmountTF.text = String(format: "%.2f", targetAmount)
+                print("\(originAmount) : \(targetAmount)")
+            } else if let targetAmount = Double(self.targetAmountTF.text ?? "") {
+                print("This should be executed")
+                let originAmount = targetAmount * (originRate / targetRate)
+                self.originAmountTF.text = String(format: "%.2f", originAmount)
+                print("\(originAmount) : \(targetAmount)")
+            }
+        }
+        
+        conversionDelegate?.moneyConversionStack(baseCurrency: targetCurrencyTF.text, baseAmount: Double(targetAmountTF.text ?? ""), originCurrency: originCurencyTF.text, originAmount: Double(originAmountTF.text ?? ""))
+    }
 }
 
 protocol MoneyConversionDelegate {
@@ -120,7 +159,6 @@ extension MoneyConversionCell: CurrencyPickerDelegate, UITextFieldDelegate {
                                 self.originAmountTF.text = String(format: "%.2f", originAmount)
                             }
                             
-                            self.conversionDelegate?.moneyConversionStack(baseCurrency: self.targetCurrencyTF.text, baseAmount: Double(self.targetAmountTF.text ?? ""), originCurrency: self.originCurencyTF.text, originAmount: Double(self.originAmountTF.text ?? ""))
                         }
                     } catch {
                         print(error)
@@ -134,10 +172,12 @@ extension MoneyConversionCell: CurrencyPickerDelegate, UITextFieldDelegate {
             originRateTF.text = ""
             targetRateTF.text = ""
         }
+        self.conversionDelegate?.moneyConversionStack(baseCurrency: self.targetCurrencyTF.text, baseAmount: Double(self.targetAmountTF.text ?? ""), originCurrency: self.originCurencyTF.text, originAmount: Double(self.originAmountTF.text ?? ""))
     }
     
     // MARK: - Text Field Delegate
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        /*
         guard let originRate = Double(originRateTF.text ?? "") else { return }
         guard let targetRate = Double(targetRateTF.text ?? "") else { return }
         if textField == originAmountTF {
@@ -162,6 +202,7 @@ extension MoneyConversionCell: CurrencyPickerDelegate, UITextFieldDelegate {
                 print("\(originAmount) : \(targetAmount)")
             }
         }
+ */
         
         conversionDelegate?.moneyConversionStack(baseCurrency: targetCurrencyTF.text, baseAmount: Double(targetAmountTF.text ?? ""), originCurrency: originCurencyTF.text, originAmount: Double(originAmountTF.text ?? ""))
     }

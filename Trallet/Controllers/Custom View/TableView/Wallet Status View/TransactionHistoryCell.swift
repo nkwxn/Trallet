@@ -122,7 +122,9 @@ class TransactionHistoryCell: UITableViewCell {
             
             // Payment type and the label
             if let paymentMethod = cdTransaction.transPaymentMethod {
-                
+                transactionPaymentType.text = paymentMethod
+                paymentTypeThumb.image = paymentMethod == "Cash" ? UIImage(systemName: "dollarsign.circle.fill") : UIImage(systemName: "creditcard.circle.fill")
+                paymentTypeThumb.tintColor = UIColor(named: "AccentColor")
             } else {
                 paymentTypeLabelWidth.constant = 0
                 paymentTypeThumbWidth.constant = 0

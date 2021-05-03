@@ -25,6 +25,9 @@
 		D5664E09263BF08500DCB7F6 /* WalletStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5664E08263BF08500DCB7F6 /* WalletStatusCell.swift */; };
 		D5664E0B263C062600DCB7F6 /* WalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5664E0A263C062600DCB7F6 /* WalletCell.swift */; };
 		D5664E0D263C0D6200DCB7F6 /* AmountMoneyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5664E0C263C0D6200DCB7F6 /* AmountMoneyCell.swift */; };
+		D5A1F47C263FCC38004B037E /* TransactionAmountSpentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F47B263FCC38004B037E /* TransactionAmountSpentCell.swift */; };
+		D5A1F47E263FE667004B037E /* TransactionNotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F47D263FE667004B037E /* TransactionNotesCell.swift */; };
+		D5A1F48126404425004B037E /* AttachmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5A1F48026404425004B037E /* AttachmentCell.swift */; };
 		D5B8E985263A652100BC192F /* NewWalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8E984263A652100BC192F /* NewWalletController.swift */; };
 		D5B8E988263A676E00BC192F /* WalletThumbnailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8E987263A676E00BC192F /* WalletThumbnailController.swift */; };
 		D5B8E98B263A69C600BC192F /* WalletDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8E98A263A69C600BC192F /* WalletDetailController.swift */; };
@@ -58,6 +61,9 @@
 		D5664E08263BF08500DCB7F6 /* WalletStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletStatusCell.swift; sourceTree = "<group>"; };
 		D5664E0A263C062600DCB7F6 /* WalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCell.swift; sourceTree = "<group>"; };
 		D5664E0C263C0D6200DCB7F6 /* AmountMoneyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountMoneyCell.swift; sourceTree = "<group>"; };
+		D5A1F47B263FCC38004B037E /* TransactionAmountSpentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAmountSpentCell.swift; sourceTree = "<group>"; };
+		D5A1F47D263FE667004B037E /* TransactionNotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionNotesCell.swift; sourceTree = "<group>"; };
+		D5A1F48026404425004B037E /* AttachmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentCell.swift; sourceTree = "<group>"; };
 		D5B8E984263A652100BC192F /* NewWalletController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWalletController.swift; sourceTree = "<group>"; };
 		D5B8E987263A676E00BC192F /* WalletThumbnailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletThumbnailController.swift; sourceTree = "<group>"; };
 		D5B8E98A263A69C600BC192F /* WalletDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailController.swift; sourceTree = "<group>"; };
@@ -132,8 +138,21 @@
 		D5358A63263EF9AD00332F7A /* Wallet Status View */ = {
 			isa = PBXGroup;
 			children = (
+				D5358A58263E6AC300332F7A /* TransactionHistoryCell.swift */,
+				D5664E08263BF08500DCB7F6 /* WalletStatusCell.swift */,
 			);
 			path = "Wallet Status View";
+			sourceTree = "<group>";
+		};
+		D5A1F47F26403968004B037E /* New Transaction View */ = {
+			isa = PBXGroup;
+			children = (
+				D5B8E9A4263A96A900BC192F /* DateTimePickerCell.swift */,
+				D5A1F47B263FCC38004B037E /* TransactionAmountSpentCell.swift */,
+				D5A1F47D263FE667004B037E /* TransactionNotesCell.swift */,
+				D5A1F48026404425004B037E /* AttachmentCell.swift */,
+			);
+			path = "New Transaction View";
 			sourceTree = "<group>";
 		};
 		D5B8E978263A629800BC192F /* Views */ = {
@@ -195,12 +214,10 @@
 		D5B8E999263A8CE900BC192F /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				D5358A62263EF94200332F7A /* New Wallet View */,
-				D5358A58263E6AC300332F7A /* TransactionHistoryCell.swift */,
-				D5358A63263EF9AD00332F7A /* Wallet Status View */,
-				D5B8E9A4263A96A900BC192F /* DateTimePickerCell.swift */,
-				D5664E08263BF08500DCB7F6 /* WalletStatusCell.swift */,
 				D5664E0A263C062600DCB7F6 /* WalletCell.swift */,
+				D5358A62263EF94200332F7A /* New Wallet View */,
+				D5358A63263EF9AD00332F7A /* Wallet Status View */,
+				D5A1F47F26403968004B037E /* New Transaction View */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -290,10 +307,13 @@
 				D5B8E9A2263A966300BC192F /* SwitchCell.swift in Sources */,
 				D51B2ED8263C4522004D5413 /* MoneyConversionCell.swift in Sources */,
 				D54F1051263C5FC500E42BCF /* CoreDataHelper.swift in Sources */,
+				D5A1F47E263FE667004B037E /* TransactionNotesCell.swift in Sources */,
 				D5358A56263DA21800332F7A /* JSONModel.swift in Sources */,
+				D5A1F47C263FCC38004B037E /* TransactionAmountSpentCell.swift in Sources */,
 				D5B8E9A8263ABC2500BC192F /* CircularButton.swift in Sources */,
 				D5B8E9A5263A96A900BC192F /* DateTimePickerCell.swift in Sources */,
 				D5B8E98E263A6B1C00BC192F /* NewTransactionController.swift in Sources */,
+				D5A1F48126404425004B037E /* AttachmentCell.swift in Sources */,
 				D5664E0D263C0D6200DCB7F6 /* AmountMoneyCell.swift in Sources */,
 				D529A75F26391F93009D118A /* SceneDelegate.swift in Sources */,
 				D5B8E99B263A8D1100BC192F /* CircleThumbnailView.swift in Sources */,

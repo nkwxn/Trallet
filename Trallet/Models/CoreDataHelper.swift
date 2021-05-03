@@ -83,17 +83,49 @@ class CoreDataHelper {
     
     // MARK: - UPDATE Methods for Wallet
     func updateWalletBalance(_ type: TransactionType, at index: Int, amount: Double) {
-        
+        let wallet = walletsArray[index]
+        switch type {
+        case .expense:
+            let balance = wallet.walletBaseBalance - amount
+            wallet.walletBaseBalance = balance
+        case .income:
+            let balance = wallet.walletBaseBalance + amount
+            wallet.walletBaseBalance = balance
+        }
         save()
+    }
+    
+    func updateWalletBalance(_ type: TransactionType, for wallet: Wallet, amount: Double) {
+        for (i, wal) in walletsArray.enumerated() {
+            if wal.isEqual(wallet) {
+                // update the wallet balance
+                updateWalletBalance(type, at: i, amount: amount)
+                // update the total income / expense
+                updateTotal(type, at: i, amount: amount)
+            }
+        }
     }
     
     func updateTotal(_ type: TransactionType, at index: Int, amount: Double) {
-        
+        let wallet = walletsArray[index]
+        switch type {
+        case .expense:
+            let total = wallet.walletCashTotalExpense + amount
+            wallet.walletCashTotalExpense = total
+        case .income:
+            let total = wallet.walletCashTotalIncome + amount
+            wallet.walletCashTotalIncome = total
+        }
         save()
     }
     
-    func updateCCExpense(at index: Int, amount: Double) {
-        
+    func updateCCExpense(_ type: TransactionType, for wallet: Wallet, amount: Double) {
+        for (i, wal) in walletsArray.enumerated() {
+            if wal.isEqual(wallet) {
+                let wallet = walletsArray[i]
+                wallet.walletCreditCardExpense += amount
+            }
+        }
         save()
     }
     
@@ -109,8 +141,41 @@ class CoreDataHelper {
     }
     
     // MARK: - CREATE Methods for Transaction
-    func createTransaction(for type: TransactionType, category: String, amount: Double, location: String? = nil, attachments: [UIImage]? = nil) {
+    func createTransaction(_ wallet: Wallet, for type: TransactionType, category: String, date transactionDate: Date, amount: Double, paymentMethod method: WalletStatusType, location: String? = nil, note: String? = nil, attachments: [UIImage]? = nil) {
+        let newTransaction = Transaction(context: context)
         
+        // Mandatory fields
+        newTransaction.transType = String(type.rawValue)
+        newTransaction.transCategory = category
+        newTransaction.transDateTime = transactionDate
+        newTransaction.parentWallet = wallet
+        newTransaction.transAmount = amount
+        
+        newTransaction.transLocationKeyword = location
+        newTransaction.transNotes = note
+        
+        if type == .expense {
+            newTransaction.transPaymentMethod = method.rawValue
+        } else {
+            newTransaction.transPaymentMethod = nil
+        }
+        
+        if let attachments = attachments {
+            newTransaction.transAttachments = attachments as NSObject
+        }
+        
+        // Update Balance, Total Transaction, and / or CC Limit
+        switch method {
+        case .cash:
+            updateWalletBalance(type, for: wallet, amount: amount)
+        case .cc:
+            updateCCExpense(type, for: wallet, amount: amount)
+        default:
+            print("unidentified")
+        }
+        
+        transactionsArray.append(newTransaction)
+        save()
     }
     
     // MARK: - READ Methods for Transaction
@@ -131,7 +196,7 @@ class CoreDataHelper {
                 guard let dateTime = tran.transDateTime else { return header }
                 
                 if let lastIndex = header.last {
-                    if lastIndex != dateTime {
+                    if dateFormat.string(from: lastIndex) != dateFormat.string(from: dateTime) {
                         header.append(dateTime)
                     }
                 } else {
@@ -153,19 +218,17 @@ class CoreDataHelper {
         }
         
         var tranDaily = [Transaction]()
+        let transactionHeader = self.getTransactionsHeader(for: wallet)
+        var currentDateIndex = 0
         
         for tran in transactionsArray {
-            guard let safeParent = tran.parentWallet else { return transaction }
-            if safeParent.isEqual(wallet) {
-                guard let tranDate = tran.transDateTime else {
-                    return transaction
-                }
-                let dateHeader = getTransactionsHeader(for: wallet)
-                for date in dateHeader {
-                    if date == tranDate {
+            if wallet.isEqual(tran.parentWallet) {
+                if let tranDate = tran.transDateTime {
+                    if dateFormat.string(from: transactionHeader[currentDateIndex]) == dateFormat.string(from: tranDate) {
                         tranDaily.append(tran)
                     } else {
                         transaction.append(tranDaily)
+                        currentDateIndex += 1
                         tranDaily.removeAll()
                         tranDaily.append(tran)
                     }
@@ -176,7 +239,6 @@ class CoreDataHelper {
         transaction.append(tranDaily)
         
         return transaction
-        
     }
     
     // MARK: - UPDATE Methods for Transaction

@@ -8,12 +8,25 @@
 import UIKit
 
 class NewTransactionController: UITableViewController {
+    // Data passed when done button pressed
+    // Mandatory data
+    var type: TransactionType?
+    var category: String?
+    var dateTime: Date? = Date()
+    var amountMoney: Double?
+    var paymentType: WalletStatusType? // can be used for payment type
+    
+    // Optional Value
+    var locationKeyword: String?
+    var notes: String?
+    var attachments: [UIImage]?
+    
     // Data passed through and set into a controller
     var previousPage: WalletDetailController!
     var cdHelper: CoreDataHelper!
     var cdWallet: Wallet! {
         didSet {
-            print(cdWallet)
+            print(cdWallet!)
         }
     }
     
@@ -33,8 +46,32 @@ class NewTransactionController: UITableViewController {
     @IBAction func BarButtonPressed(_ sender: UIBarButtonItem) {
         if sender.isEqual(self.btnDone) {
             // If any field is empty, show alert message unable to add new transaction
-            if false {
-//                cdHelper.createTransaction(for: <#T##TransactionType#>, category: <#T##String#>, amount: <#T##Double#>, location: <#T##String?#>, attachments: <#T##[UIImage]?#>)
+            if let safeType = self.type,
+               let safeCategory = self.category,
+               let safeDateTime = self.dateTime,
+               let safeAmount = self.amountMoney {
+                var safePaymentMethod = self.paymentType ?? .cash
+                
+                if safeType == .income {
+                    safePaymentMethod = .cash
+                }
+                
+                self.cdHelper.createTransaction(
+                    self.cdWallet,
+                    for: safeType,
+                    category: safeCategory,
+                    date: safeDateTime,
+                    amount: safeAmount,
+                    paymentMethod: safePaymentMethod,
+                    location: self.locationKeyword,
+                    note: self.notes,
+                    attachments: self.attachments
+                )
+                
+                self.dismiss(animated: true) {
+                    self.previousPage.tableView.reloadData()
+                }
+                
             } else {
                 showAlert()
             }
@@ -71,6 +108,7 @@ class NewTransactionController: UITableViewController {
 
             // Configure the cell...
             cell.category = .dateTimeTransaction
+            cell.pickerDelegate = self
 
             return cell
         case 2:
@@ -81,9 +119,11 @@ class NewTransactionController: UITableViewController {
 
             return cell
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AmountSpent", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AmountSpent", for: indexPath) as! TransactionAmountSpentCell
 
             // Configure the cell...
+            cell.delegate = self
+            cell.cdWallet = self.cdWallet
 
             return cell
         case 4:
@@ -94,9 +134,10 @@ class NewTransactionController: UITableViewController {
 
             return cell
         case 5:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Notes", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Notes", for: indexPath) as! TransactionNotesCell
 
             // Configure the cell...
+            cell.delegate = self
 
             return cell
         case 6:
@@ -112,6 +153,25 @@ class NewTransactionController: UITableViewController {
 
             return cell
         }
+    }
+    
+    // atur row height
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 4:
+            return type == .income ? 0 : tableView.estimatedRowHeight
+        default:
+            return tableView.estimatedRowHeight
+        }
+    }
+    
+    // MARK: - Unwind from Category
+    func unwindFromCategory(for transactionType: TransactionType, catName: String) {
+        self.type = transactionType
+        self.category = catName
+        
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
     
     // MARK: - TableView Delegate Methods
@@ -133,6 +193,8 @@ class NewTransactionController: UITableViewController {
                 // Tambahkan interaksi ubah teks di accessory nya
                 if let alertInput = alert.textFields![0].text {
                     tableView.cellForRow(at: indexPath)?.detailTextLabel?.text = alertInput
+                    
+                    self.locationKeyword = alertInput
                 }
             })
             self.present(alert, animated: true, completion: nil)
@@ -142,9 +204,11 @@ class NewTransactionController: UITableViewController {
             let actionSheet = UIAlertController(title: "Choose Payment Method", message: nil, preferredStyle: .actionSheet)
             actionSheet.addAction(UIAlertAction(title: "Cash", style: .default, handler: { alert in
                 tableView.cellForRow(at: indexPath)?.detailTextLabel?.text = "Cash"
+                self.paymentType = .cash
             }))
             actionSheet.addAction(UIAlertAction(title: "Credit Card", style: .default, handler: { alert in
                 tableView.cellForRow(at: indexPath)?.detailTextLabel?.text = "Credit Card"
+                self.paymentType = .cc
             }))
             actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             self.present(actionSheet, animated: true, completion: nil)
@@ -171,7 +235,6 @@ class NewTransactionController: UITableViewController {
         return CGFloat.leastNonzeroMagnitude
     }
     
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -185,4 +248,21 @@ class NewTransactionController: UITableViewController {
         }
     }
 
+}
+
+extension NewTransactionController: DateTimeCategoryDelegate, TransactionAmountDelegate, TransactionNotesDelegate {
+    // Date and time delegate
+    func fetchDateTime(_ dateTime: Date) {
+        self.dateTime = dateTime
+    }
+    
+    // Amount delegate
+    func transactionAmount(number: Double?) {
+        self.amountMoney = number
+    }
+    
+    // Notes delegate
+    func transactionNote(_ note: String?) {
+        self.notes = note
+    }
 }
