@@ -246,14 +246,31 @@ class CoreDataHelper {
     
     // MARK: - DELETE Methods for Transaction
     func deleteTransaction(for wallet: Wallet) {
-        for (index, transaction) in transactionsArray.enumerated() {
+        let transactionRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
+        
+        let predicate = NSPredicate(format: "parentWallet.walletName MATCHES %@", wallet.walletName!)
+        
+        transactionRequest.predicate = predicate
+
+        var sortedTransactions = [Transaction]()
+        
+        do {
+            sortedTransactions = try context.fetch(transactionRequest)
+        } catch {
+            print("Error fetching data from context \(error)")
+        }
+        
+        for transaction in sortedTransactions {
             guard let parentWallet = transaction.parentWallet else { return }
             if parentWallet.isEqual(wallet) {
-                context.delete(transactionsArray[index])
-                transactionsArray.remove(at: index)
+                context.delete(sortedTransactions.last!)
+                sortedTransactions.removeLast()
             }
         }
+        
         save()
+        
+        load()
     }
     
     // MARK: - Load all data to array of Subjects and Schedules

@@ -15,11 +15,24 @@ class TripWallets: UITableViewController {
         // Do any additional setup after loading the view.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        cdHelper.load()
+        tableView.reloadData()
+    }
 
     // MARK: - TableView Data Source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        // Empty state
+        switch cdHelper.walletsArray.count {
+        case 0:
+            tableView.setEmptyView(title: "Traveling really soon? 🛫", message: "Add your new travel wallet by clicking the + button on the top-right corner")
+        default:
+            tableView.restore()
+        }
+        
         return cdHelper.walletsArray.count
     }
 

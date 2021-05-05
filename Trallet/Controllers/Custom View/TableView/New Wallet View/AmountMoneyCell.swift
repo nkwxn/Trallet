@@ -26,8 +26,8 @@ class AmountMoneyCell: UITableViewCell {
     var amountDelegate: AmountMoneyDelegate?
     
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var tfAmount: UITextField!
-    @IBOutlet weak var tfCurrency: UITextField!
+    @IBOutlet weak var tfAmount: OrangeBorderTextField!
+    @IBOutlet weak var tfCurrency: OrangeBorderTextField!
     
     var currencyPicker = CurrencyPicker()
     
@@ -43,6 +43,9 @@ class AmountMoneyCell: UITableViewCell {
         tfAmount.delegate = self
         
         tfCurrency.text = defaults.string(forKey: "homeCurrency")
+        
+        tfCurrency.orangeBorder()
+        tfAmount.orangeBorder()
         
         tfAmount.addTarget(self, action: #selector(AmountMoneyCell.textChanged(_:)), for: .editingChanged)
     }

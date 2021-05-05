@@ -82,7 +82,7 @@ class TransactionCategoriesController: UITableViewController {
                 
                 self.categoryTableViewCell.detailTextLabel?.text = "\(self.arrHeader[indexPath.section].rawValue): \(tfContent)"
                 
-                self.newTransaction.unwindFromCategory(for: self.arrHeader[indexPath.section], catName: self.arrCategories[indexPath.section][indexPath.row])
+                self.newTransaction.unwindFromCategory(for: self.arrHeader[indexPath.section], catName: tfContent)
                 self.navigationController?.popViewController(animated: true)
             })
             self.present(alert, animated: true)

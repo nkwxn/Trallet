@@ -32,6 +32,8 @@ class DateTimePickerCell: UITableViewCell {
         titleLabel.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         datePicker.setContentHuggingPriority(UILayoutPriority.defaultLow, for: .horizontal)
         pickerDelegate?.fetchDateTime(datePicker.date)
+        datePicker.semanticContentAttribute = .forceRightToLeft
+        datePicker.subviews.first?.semanticContentAttribute = .forceRightToLeft
     }
     
     @IBAction func dateValueChanged(_ sender: UIDatePicker) {

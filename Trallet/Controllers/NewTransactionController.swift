@@ -46,15 +46,15 @@ class NewTransactionController: UITableViewController {
     @IBAction func BarButtonPressed(_ sender: UIBarButtonItem) {
         if sender.isEqual(self.btnDone) {
             // If any field is empty, show alert message unable to add new transaction
+            if self.type == .income {
+                self.paymentType = .cash
+            }
+            
             if let safeType = self.type,
                let safeCategory = self.category,
                let safeDateTime = self.dateTime,
-               let safeAmount = self.amountMoney {
-                var safePaymentMethod = self.paymentType ?? .cash
-                
-                if safeType == .income {
-                    safePaymentMethod = .cash
-                }
+               let safeAmount = self.amountMoney,
+               let safePaymentMethod = self.paymentType {
                 
                 self.cdHelper.createTransaction(
                     self.cdWallet,
@@ -141,9 +141,11 @@ class NewTransactionController: UITableViewController {
 
             return cell
         case 6:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AttachmentRow", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AttachmentRow", for: indexPath) as! AttachmentCell
 
             // Configure the cell...
+            cell.relatedView = self
+//            cell.delegate = self
 
             return cell
         default:
@@ -250,7 +252,12 @@ class NewTransactionController: UITableViewController {
 
 }
 
-extension NewTransactionController: DateTimeCategoryDelegate, TransactionAmountDelegate, TransactionNotesDelegate {
+extension NewTransactionController: DateTimeCategoryDelegate, TransactionAmountDelegate, TransactionNotesDelegate, AttachmentCellDelegate {
+    
+    func sendAttachments(_ images: [UIImage]?) {
+        self.attachments = images
+    }
+    
     // Date and time delegate
     func fetchDateTime(_ dateTime: Date) {
         self.dateTime = dateTime
@@ -264,5 +271,10 @@ extension NewTransactionController: DateTimeCategoryDelegate, TransactionAmountD
     // Notes delegate
     func transactionNote(_ note: String?) {
         self.notes = note
+    }
+    
+    // Attachments cell delegate to import images
+    func sendAttachments(_ images: [UIImage]) {
+        self.attachments = images
     }
 }

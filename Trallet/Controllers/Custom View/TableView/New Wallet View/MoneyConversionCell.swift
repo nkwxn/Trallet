@@ -12,15 +12,15 @@ class MoneyConversionCell: UITableViewCell {
     var defaults = UserDefaults.standard
     var conversionDelegate: MoneyConversionDelegate?
     
-    @IBOutlet weak var originCurencyTF: UITextField!
-    @IBOutlet weak var targetCurrencyTF: UITextField!
-    @IBOutlet weak var originAmountTF: UITextField!
-    @IBOutlet weak var targetAmountTF: UITextField!
+    @IBOutlet weak var originCurencyTF: OrangeBorderTextField!
+    @IBOutlet weak var targetCurrencyTF: OrangeBorderTextField!
+    @IBOutlet weak var originAmountTF: OrangeBorderTextField!
+    @IBOutlet weak var targetAmountTF: OrangeBorderTextField!
     
     @IBOutlet weak var originCurrencyLabel: UILabel!
     @IBOutlet weak var targetCurrencyLabel: UILabel!
-    @IBOutlet weak var originRateTF: UITextField!
-    @IBOutlet weak var targetRateTF: UITextField!
+    @IBOutlet weak var originRateTF: OrangeBorderTextField!
+    @IBOutlet weak var targetRateTF: OrangeBorderTextField!
     
     var currencyPicker = CurrencyPicker()
     
@@ -44,6 +44,13 @@ class MoneyConversionCell: UITableViewCell {
         originCurencyTF.text = defaults.string(forKey: "homeCurrency")
         
         originCurrencyLabel.text = defaults.string(forKey: "homeCurrency")
+        
+        originRateTF.orangeBorder()
+        originAmountTF.orangeBorder()
+        targetRateTF.orangeBorder()
+        targetAmountTF.orangeBorder()
+        originCurencyTF.orangeBorder()
+        targetCurrencyTF.orangeBorder()
         
         originAmountTF.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)
         targetAmountTF.addTarget(self, action: #selector(textChanged(_:)), for: .editingChanged)

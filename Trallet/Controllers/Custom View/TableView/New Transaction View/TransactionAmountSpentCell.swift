@@ -24,13 +24,13 @@ class TransactionAmountSpentCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         txtFieldAmount.delegate = self
+        txtFieldAmount.addTarget(self, action: #selector(TransactionAmountSpentCell.textFieldDidChange(_:)), for: .editingChanged)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-        txtFieldAmount.addTarget(self, action: #selector(TransactionAmountSpentCell.textFieldDidChange(_:)), for: .editingChanged)
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {

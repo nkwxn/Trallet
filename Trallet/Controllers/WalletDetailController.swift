@@ -95,10 +95,22 @@ class WalletDetailController: UITableViewController {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: TransactionHistoryCell.ReuseID()) as! TransactionHistoryCell
             
+            cell.selectionStyle = .default
+            
             cell.cdTransaction = cdHelper.readAllTransactions(for: cdWallet)[indexPath.section - 1][indexPath.row]
             
             return cell
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            print("Nothing to select")
+        default:
+            performSegue(withIdentifier: "viewTransactionDetail", sender: self)
+        }
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // MARK: - TableView Section Header
@@ -158,6 +170,12 @@ class WalletDetailController: UITableViewController {
             newTransView.cdHelper = self.cdHelper
             newTransView.previousPage = self
             newTransView.cdWallet = self.cdWallet
+        } else if segue.identifier == "viewTransactionDetail" {
+            let navcon = segue.destination as! UINavigationController
+            let transDetailView = navcon.viewControllers[0] as! TransactionDetailController
+            guard let rowSelected = tableView.indexPathForSelectedRow else { return }
+            transDetailView.currencyCode = cdWallet.walletBaseCurrency
+            transDetailView.cdTransaction = cdHelper.readAllTransactions(for: cdWallet)[rowSelected.section - 1][rowSelected.row]
         }
     }
     

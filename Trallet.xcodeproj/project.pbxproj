@@ -15,13 +15,14 @@
 		D529A76426391F93009D118A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D529A76226391F93009D118A /* Main.storyboard */; };
 		D529A76726391F93009D118A /* Trallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D529A76526391F93009D118A /* Trallet.xcdatamodeld */; };
 		D529A76926391F95009D118A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D529A76826391F95009D118A /* Assets.xcassets */; };
-		D529A76C26391F95009D118A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D529A76A26391F95009D118A /* LaunchScreen.storyboard */; };
 		D5358A56263DA21800332F7A /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5358A55263DA21800332F7A /* JSONModel.swift */; };
 		D5358A5A263E6AC300332F7A /* TransactionHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5358A58263E6AC300332F7A /* TransactionHistoryCell.swift */; };
 		D5358A5B263E6AC300332F7A /* TransactionHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5358A59263E6AC300332F7A /* TransactionHistoryCell.xib */; };
 		D5358A5D263EA10000332F7A /* TransactionHistoryHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5358A5C263EA10000332F7A /* TransactionHistoryHeader.xib */; };
 		D5358A61263EB91400332F7A /* TransactionFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5358A60263EB91400332F7A /* TransactionFooter.xib */; };
 		D54F1051263C5FC500E42BCF /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54F1050263C5FC500E42BCF /* CoreDataHelper.swift */; };
+		D560D141264105EB00F284BB /* TableCollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D560D140264105EB00F284BB /* TableCollectionViewExtension.swift */; };
+		D560D14326412FA800F284BB /* TransactionDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D560D14226412FA800F284BB /* TransactionDetailController.swift */; };
 		D5664E09263BF08500DCB7F6 /* WalletStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5664E08263BF08500DCB7F6 /* WalletStatusCell.swift */; };
 		D5664E0B263C062600DCB7F6 /* WalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5664E0A263C062600DCB7F6 /* WalletCell.swift */; };
 		D5664E0D263C0D6200DCB7F6 /* AmountMoneyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5664E0C263C0D6200DCB7F6 /* AmountMoneyCell.swift */; };
@@ -38,6 +39,8 @@
 		D5B8E9A2263A966300BC192F /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8E9A1263A966300BC192F /* SwitchCell.swift */; };
 		D5B8E9A5263A96A900BC192F /* DateTimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8E9A4263A96A900BC192F /* DateTimePickerCell.swift */; };
 		D5B8E9A8263ABC2500BC192F /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8E9A7263ABC2500BC192F /* CircularButton.swift */; };
+		D5DC6B7D26422FC300414B30 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5DC6B7C26422FC300414B30 /* Launch Screen.storyboard */; };
+		D5DC6B7F2642305300414B30 /* OrangeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DC6B7E2642305300414B30 /* OrangeTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +53,6 @@
 		D529A76326391F93009D118A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D529A76626391F93009D118A /* Trallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Trallet.xcdatamodel; sourceTree = "<group>"; };
 		D529A76826391F95009D118A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D529A76B26391F95009D118A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D529A76D26391F95009D118A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5358A55263DA21800332F7A /* JSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
 		D5358A58263E6AC300332F7A /* TransactionHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryCell.swift; sourceTree = "<group>"; };
@@ -58,6 +60,8 @@
 		D5358A5C263EA10000332F7A /* TransactionHistoryHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionHistoryHeader.xib; sourceTree = "<group>"; };
 		D5358A60263EB91400332F7A /* TransactionFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionFooter.xib; sourceTree = "<group>"; };
 		D54F1050263C5FC500E42BCF /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		D560D140264105EB00F284BB /* TableCollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionViewExtension.swift; sourceTree = "<group>"; };
+		D560D14226412FA800F284BB /* TransactionDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailController.swift; sourceTree = "<group>"; };
 		D5664E08263BF08500DCB7F6 /* WalletStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletStatusCell.swift; sourceTree = "<group>"; };
 		D5664E0A263C062600DCB7F6 /* WalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCell.swift; sourceTree = "<group>"; };
 		D5664E0C263C0D6200DCB7F6 /* AmountMoneyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountMoneyCell.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 		D5B8E9A1263A966300BC192F /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		D5B8E9A4263A96A900BC192F /* DateTimePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePickerCell.swift; sourceTree = "<group>"; };
 		D5B8E9A7263ABC2500BC192F /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
+		D5DC6B7C26422FC300414B30 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D5DC6B7E2642305300414B30 /* OrangeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +166,7 @@
 			children = (
 				D5358A57263E6A6B00332F7A /* Transaction History Table Set */,
 				D529A76226391F93009D118A /* Main.storyboard */,
-				D529A76A26391F95009D118A /* LaunchScreen.storyboard */,
+				D5DC6B7C26422FC300414B30 /* Launch Screen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +181,7 @@
 				D5B8E98A263A69C600BC192F /* WalletDetailController.swift */,
 				D5B8E98D263A6B1C00BC192F /* NewTransactionController.swift */,
 				D5B8E990263A6B4600BC192F /* TransactionCategoriesController.swift */,
+				D560D14226412FA800F284BB /* TransactionDetailController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -207,6 +214,8 @@
 				D5B8E99A263A8D1100BC192F /* CircleThumbnailView.swift */,
 				D5B8E9A7263ABC2500BC192F /* CircularButton.swift */,
 				D51B2ED5263C19B2004D5413 /* CurrencyPicker.swift */,
+				D560D140264105EB00F284BB /* TableCollectionViewExtension.swift */,
+				D5DC6B7E2642305300414B30 /* OrangeTextField.swift */,
 			);
 			path = "Custom View";
 			sourceTree = "<group>";
@@ -279,12 +288,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D529A76C26391F95009D118A /* LaunchScreen.storyboard in Resources */,
 				D5358A61263EB91400332F7A /* TransactionFooter.xib in Resources */,
 				D529A76926391F95009D118A /* Assets.xcassets in Resources */,
 				D529A76426391F93009D118A /* Main.storyboard in Resources */,
 				D5358A5D263EA10000332F7A /* TransactionHistoryHeader.xib in Resources */,
 				D5358A5B263E6AC300332F7A /* TransactionHistoryCell.xib in Resources */,
+				D5DC6B7D26422FC300414B30 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,8 +313,10 @@
 				D5B8E988263A676E00BC192F /* WalletThumbnailController.swift in Sources */,
 				D51B2ED6263C19B2004D5413 /* CurrencyPicker.swift in Sources */,
 				D5664E09263BF08500DCB7F6 /* WalletStatusCell.swift in Sources */,
+				D5DC6B7F2642305300414B30 /* OrangeTextField.swift in Sources */,
 				D5B8E9A2263A966300BC192F /* SwitchCell.swift in Sources */,
 				D51B2ED8263C4522004D5413 /* MoneyConversionCell.swift in Sources */,
+				D560D14326412FA800F284BB /* TransactionDetailController.swift in Sources */,
 				D54F1051263C5FC500E42BCF /* CoreDataHelper.swift in Sources */,
 				D5A1F47E263FE667004B037E /* TransactionNotesCell.swift in Sources */,
 				D5358A56263DA21800332F7A /* JSONModel.swift in Sources */,
@@ -318,6 +329,7 @@
 				D529A75F26391F93009D118A /* SceneDelegate.swift in Sources */,
 				D5B8E99B263A8D1100BC192F /* CircleThumbnailView.swift in Sources */,
 				D5B8E99F263A8D3400BC192F /* NewWalletHeaderCell.swift in Sources */,
+				D560D141264105EB00F284BB /* TableCollectionViewExtension.swift in Sources */,
 				D5B8E991263A6B4700BC192F /* TransactionCategoriesController.swift in Sources */,
 				D5B8E985263A652100BC192F /* NewWalletController.swift in Sources */,
 			);
@@ -332,14 +344,6 @@
 				D529A76326391F93009D118A /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D529A76A26391F95009D118A /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D529A76B26391F95009D118A /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
