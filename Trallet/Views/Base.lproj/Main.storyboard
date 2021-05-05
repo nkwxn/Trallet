@@ -636,23 +636,23 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DateTimePicker" id="ieh-cy-Ojx" customClass="DateTimePickerCell" customModule="Trallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92.666667938232422" width="390" height="95.666664123535156"/>
+                                <rect key="frame" x="0.0" y="92.666667938232422" width="390" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ieh-cy-Ojx" id="6xH-3Y-iq0">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="95.666664123535156"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="96"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="FZ7-C9-9RU">
-                                            <rect key="frame" x="20" y="11" width="350" height="73.666666666666671"/>
+                                            <rect key="frame" x="20" y="11" width="350" height="74"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date &amp; Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBP-89-LgJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="94" height="73.666666666666671"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="94" height="74"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="zww-x2-bDO">
-                                                    <rect key="frame" x="94" y="0.0" width="256" height="73.666666666666671"/>
+                                                    <rect key="frame" x="94" y="0.0" width="256" height="74"/>
                                                     <color key="tintColor" name="AccentColor"/>
                                                     <connections>
                                                         <action selector="dateValueChanged:" destination="ieh-cy-Ojx" eventType="valueChanged" id="C8s-rZ-u9C"/>
@@ -676,7 +676,7 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AmountSpent" rowHeight="86" id="MU4-Lh-8le" customClass="TransactionAmountSpentCell" customModule="Trallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="188.33333206176758" width="390" height="86"/>
+                                <rect key="frame" x="0.0" y="188.66666793823242" width="390" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MU4-Lh-8le" id="46g-EO-f0l">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="86"/>
@@ -726,7 +726,7 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Notes" rowHeight="86" id="TdU-XG-iqm" customClass="TransactionNotesCell" customModule="Trallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="274.33333206176758" width="390" height="86"/>
+                                <rect key="frame" x="0.0" y="274.66666793823242" width="390" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TdU-XG-iqm" id="Oce-52-27w">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="86"/>
@@ -765,7 +765,7 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AttachmentRow" rowHeight="159" id="wh6-iH-meg" customClass="AttachmentCell" customModule="Trallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="360.33333206176758" width="390" height="159"/>
+                                <rect key="frame" x="0.0" y="360.66666793823242" width="390" height="159"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wh6-iH-meg" id="pdJ-r8-zcB">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="159"/>

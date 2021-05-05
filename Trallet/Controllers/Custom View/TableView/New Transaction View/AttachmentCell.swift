@@ -92,7 +92,6 @@ extension AttachmentCell: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCell
-        cell.backgroundColor = UIColor(named: "AccentColor")
         cell.imgView.image = imgArray?[indexPath.row]
         return cell
     }
@@ -123,6 +122,5 @@ class ImageCell: UICollectionViewCell {
         borderView.layer.borderWidth = 1
         borderView.layer.cornerRadius = 8
         borderView.layer.borderColor =  UIColor(named: "AccentColor")?.cgColor
-        
     }
 }
