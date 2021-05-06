@@ -31,6 +31,8 @@ class TransactionDetailController: UIViewController {
         // Do any additional setup after loading the view.
         let numberFormat = NumberFormatter()
         numberFormat.numberStyle = .decimal
+        numberFormat.minimumFractionDigits = 2
+        numberFormat.maximumFractionDigits = 2
 //        numberFormat.currencyCode = currencyCode
         
         transactionType.text = cdTransaction.transCategory
