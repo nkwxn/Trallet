@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D51B2ED6263C19B2004D5413 /* CurrencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B2ED5263C19B2004D5413 /* CurrencyPicker.swift */; };
 		D51B2ED8263C4522004D5413 /* MoneyConversionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B2ED7263C4522004D5413 /* MoneyConversionCell.swift */; };
+		D52165F1264920430038BAD1 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52165F0264920430038BAD1 /* SelectLocationViewController.swift */; };
 		D529A75D26391F93009D118A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D529A75C26391F93009D118A /* AppDelegate.swift */; };
 		D529A75F26391F93009D118A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D529A75E26391F93009D118A /* SceneDelegate.swift */; };
 		D529A76126391F93009D118A /* TripWallets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D529A76026391F93009D118A /* TripWallets.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		D51B2ED5263C19B2004D5413 /* CurrencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPicker.swift; sourceTree = "<group>"; };
 		D51B2ED7263C4522004D5413 /* MoneyConversionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyConversionCell.swift; sourceTree = "<group>"; };
+		D52165F0264920430038BAD1 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
 		D529A75926391F93009D118A /* Trallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D529A75C26391F93009D118A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D529A75E26391F93009D118A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				D5B8E98D263A6B1C00BC192F /* NewTransactionController.swift */,
 				D5B8E990263A6B4600BC192F /* TransactionCategoriesController.swift */,
 				D560D14226412FA800F284BB /* TransactionDetailController.swift */,
+				D52165F0264920430038BAD1 /* SelectLocationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D52165F1264920430038BAD1 /* SelectLocationViewController.swift in Sources */,
 				D529A76726391F93009D118A /* Trallet.xcdatamodeld in Sources */,
 				D5B8E98B263A69C600BC192F /* WalletDetailController.swift in Sources */,
 				D529A76126391F93009D118A /* TripWallets.swift in Sources */,

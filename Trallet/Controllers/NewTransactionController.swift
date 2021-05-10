@@ -184,6 +184,7 @@ class NewTransactionController: UITableViewController {
             // Perform segue open the category page
             self.performSegue(withIdentifier: "OpenCategory", sender: self)
         case 2:
+            /*
             // Now: Show alert pop-up with text field
             let alert = UIAlertController(title: "Enter Location", message: "Please enter some keywords regarding to the location you visited", preferredStyle: .alert)
             alert.addTextField { textField in
@@ -200,7 +201,10 @@ class NewTransactionController: UITableViewController {
                 }
             })
             self.present(alert, animated: true, completion: nil)
+            */
+            
             // TODO: In the future put the code to perform segue open the mapview
+            self.performSegue(withIdentifier: "openMap", sender: self)
         case 4:
             // Show Action Sheet for choosing payment method
             let actionSheet = UIAlertController(title: "Choose Payment Method", message: nil, preferredStyle: .actionSheet)
