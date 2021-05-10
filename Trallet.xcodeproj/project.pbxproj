@@ -16,6 +16,7 @@
 		D529A76426391F93009D118A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D529A76226391F93009D118A /* Main.storyboard */; };
 		D529A76726391F93009D118A /* Trallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D529A76526391F93009D118A /* Trallet.xcdatamodeld */; };
 		D529A76926391F95009D118A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D529A76826391F95009D118A /* Assets.xcassets */; };
+		D530CC392649601100A0F6AF /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D530CC382649601100A0F6AF /* LocationManager.swift */; };
 		D5358A56263DA21800332F7A /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5358A55263DA21800332F7A /* JSONModel.swift */; };
 		D5358A5A263E6AC300332F7A /* TransactionHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5358A58263E6AC300332F7A /* TransactionHistoryCell.swift */; };
 		D5358A5B263E6AC300332F7A /* TransactionHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5358A59263E6AC300332F7A /* TransactionHistoryCell.xib */; };
@@ -56,6 +57,7 @@
 		D529A76626391F93009D118A /* Trallet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Trallet.xcdatamodel; sourceTree = "<group>"; };
 		D529A76826391F95009D118A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D529A76D26391F95009D118A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D530CC382649601100A0F6AF /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		D5358A55263DA21800332F7A /* JSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
 		D5358A58263E6AC300332F7A /* TransactionHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHistoryCell.swift; sourceTree = "<group>"; };
 		D5358A59263E6AC300332F7A /* TransactionHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionHistoryCell.xib; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				D529A76526391F93009D118A /* Trallet.xcdatamodeld */,
 				D54F1050263C5FC500E42BCF /* CoreDataHelper.swift */,
 				D5358A55263DA21800332F7A /* JSONModel.swift */,
+				D530CC382649601100A0F6AF /* LocationManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			files = (
 				D52165F1264920430038BAD1 /* SelectLocationViewController.swift in Sources */,
 				D529A76726391F93009D118A /* Trallet.xcdatamodeld in Sources */,
+				D530CC392649601100A0F6AF /* LocationManager.swift in Sources */,
 				D5B8E98B263A69C600BC192F /* WalletDetailController.swift in Sources */,
 				D529A76126391F93009D118A /* TripWallets.swift in Sources */,
 				D5358A5A263E6AC300332F7A /* TransactionHistoryCell.swift in Sources */,
