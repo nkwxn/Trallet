@@ -41,6 +41,7 @@
 		D5B8E9A2263A966300BC192F /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8E9A1263A966300BC192F /* SwitchCell.swift */; };
 		D5B8E9A5263A96A900BC192F /* DateTimePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8E9A4263A96A900BC192F /* DateTimePickerCell.swift */; };
 		D5B8E9A8263ABC2500BC192F /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B8E9A7263ABC2500BC192F /* CircularButton.swift */; };
+		D5CCAF61264E6DF100002F9D /* AnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5CCAF60264E6DF100002F9D /* AnnotationView.xib */; };
 		D5DC6B7D26422FC300414B30 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5DC6B7C26422FC300414B30 /* Launch Screen.storyboard */; };
 		D5DC6B7F2642305300414B30 /* OrangeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DC6B7E2642305300414B30 /* OrangeTextField.swift */; };
 /* End PBXBuildFile section */
@@ -82,6 +83,7 @@
 		D5B8E9A1263A966300BC192F /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCell.swift; sourceTree = "<group>"; };
 		D5B8E9A4263A96A900BC192F /* DateTimePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimePickerCell.swift; sourceTree = "<group>"; };
 		D5B8E9A7263ABC2500BC192F /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
+		D5CCAF60264E6DF100002F9D /* AnnotationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnnotationView.xib; sourceTree = "<group>"; };
 		D5DC6B7C26422FC300414B30 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D5DC6B7E2642305300414B30 /* OrangeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +173,7 @@
 				D5358A57263E6A6B00332F7A /* Transaction History Table Set */,
 				D529A76226391F93009D118A /* Main.storyboard */,
 				D5DC6B7C26422FC300414B30 /* Launch Screen.storyboard */,
+				D5CCAF60264E6DF100002F9D /* AnnotationView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				D5358A61263EB91400332F7A /* TransactionFooter.xib in Resources */,
 				D529A76926391F95009D118A /* Assets.xcassets in Resources */,
 				D529A76426391F93009D118A /* Main.storyboard in Resources */,
+				D5CCAF61264E6DF100002F9D /* AnnotationView.xib in Resources */,
 				D5358A5D263EA10000332F7A /* TransactionHistoryHeader.xib in Resources */,
 				D5358A5B263E6AC300332F7A /* TransactionHistoryCell.xib in Resources */,
 				D5DC6B7D26422FC300414B30 /* Launch Screen.storyboard in Resources */,

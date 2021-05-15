@@ -8,6 +8,10 @@
 import UIKit
 import MapKit
 
+protocol SelectLocationDelegate {
+    func locationSelected(_ location: MKMapItem)
+}
+
 class SelectLocationViewController: UIViewController, MaskedCorner {
     
     // Outlet for Map View
@@ -25,6 +29,8 @@ class SelectLocationViewController: UIViewController, MaskedCorner {
     // Value to show on Search Result
     var searchResultArr = [MKMapItem]()
     
+    var delegate: SelectLocationDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,6 +47,8 @@ class SelectLocationViewController: UIViewController, MaskedCorner {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
+        
+        pinMapView.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -48,7 +56,11 @@ class SelectLocationViewController: UIViewController, MaskedCorner {
     }
     
     override func viewSafeAreaInsetsDidChange() {
-        self.searchViewHeight.constant = self.searchView.layoutMargins.top + searchBarLocation.frame.height + view.safeAreaInsets.bottom
+        if view.safeAreaInsets.bottom != 0 {
+            self.searchViewHeight.constant = self.searchView.layoutMargins.top + searchBarLocation.frame.height + view.safeAreaInsets.bottom
+        } else {
+            self.searchViewHeight.constant = self.searchView.layoutMargins.top * 2 + searchBarLocation.frame.height + view.safeAreaInsets.bottom
+        }
     }
 
     /*
@@ -60,10 +72,6 @@ class SelectLocationViewController: UIViewController, MaskedCorner {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func loadSearch(for searchQuery: String) {
-        
-    }
 }
 
 // MARK: - Search Bar Delegate
@@ -102,14 +110,14 @@ extension SelectLocationViewController: UISearchBarDelegate {
                 
                 self.searchResultArr = response.mapItems
                 self.searchResultTableView.reloadData()
-                
-                // input annotation on map
             }
         }
         
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        // Animate collapsing TableView and Search Box
         UIView.animate(withDuration: 0.3) {
             // When search query is empty
             if searchBar.text != "" && self.searchResultArr.count != 0 {
@@ -120,6 +128,22 @@ extension SelectLocationViewController: UISearchBarDelegate {
                 self.searchResultTableView.reloadData()
             }
             self.view.layoutIfNeeded()
+        }
+        
+        // Set the coordinate regarding to the search result
+        self.pinMapView.removeAnnotations(self.pinMapView.annotations)
+        
+        for pinpoint in self.searchResultArr {
+            let annotation = LocationAnnotation(object: pinpoint)
+            self.pinMapView.addAnnotation(annotation)
+        }
+        
+        // Set coordinate into first array
+        if let firstResult = self.searchResultArr.first {
+            let coordinate = firstResult.placemark.coordinate
+            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            self.pinMapView.setRegion(region, animated: true)
         }
     }
 }
@@ -145,6 +169,18 @@ extension SelectLocationViewController: CLLocationManagerDelegate {
     }
 }
 
+// MARK: - MapView Delegate Methods
+extension SelectLocationViewController: MKMapViewDelegate {
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        print("\(view) selected")
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
+        print("\(view) deselected")
+    }
+}
+
 // MARK: - TableView Delegate and Data Source
 extension SelectLocationViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -167,6 +203,7 @@ extension SelectLocationViewController: UITableViewDelegate, UITableViewDataSour
     
     // When row selected, bring back the map variable to the prev view controller
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.locationSelected(searchResultArr[indexPath.row])
         self.navigationController?.popViewController(animated: true)
     }
 }

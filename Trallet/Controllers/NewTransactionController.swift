@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class NewTransactionController: UITableViewController {
     // Data passed when done button pressed
@@ -17,7 +18,17 @@ class NewTransactionController: UITableViewController {
     var paymentType: WalletStatusType? // can be used for payment type
     
     // Optional Value
-    var locationKeyword: String?
+    var locationItem: MKMapItem? {
+        didSet {
+            locationKeyword = locationItem?.name
+        }
+    }
+    var locationKeyword: String? {
+        didSet {
+            let rowTV = self.tableView.cellForRow(at: IndexPath(row: 2, section: 0))
+            rowTV?.detailTextLabel?.text = locationKeyword
+        }
+    }
     var notes: String?
     var attachments: [UIImage]?
     
@@ -251,6 +262,9 @@ class NewTransactionController: UITableViewController {
             let dest = segue.destination as! TransactionCategoriesController
             dest.newTransaction = self
             dest.categoryTableViewCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0))
+        } else if segue.identifier! == "openMap" {
+            let dest = segue.destination as! SelectLocationViewController
+            dest.delegate = self
         }
     }
 
@@ -280,5 +294,12 @@ extension NewTransactionController: DateTimeCategoryDelegate, TransactionAmountD
     // Attachments cell delegate to import images
     func sendAttachments(_ images: [UIImage]) {
         self.attachments = images
+    }
+}
+
+extension NewTransactionController: SelectLocationDelegate {
+    func locationSelected(_ location: MKMapItem) {
+        print(location)
+        self.locationKeyword = location.name
     }
 }
