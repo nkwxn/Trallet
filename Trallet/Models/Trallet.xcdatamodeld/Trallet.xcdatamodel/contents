@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E232" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E241" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Transaction" representedClassName="Transaction" syncable="YES" codeGenerationType="class">
         <attribute name="transAmount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="transAttachments" optional="YES" attributeType="Transformable"/>
         <attribute name="transCategory" attributeType="String"/>
         <attribute name="transDateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="transLocationItem" optional="YES" attributeType="Transformable"/>
         <attribute name="transLocationKeyword" optional="YES" attributeType="String"/>
         <attribute name="transNotes" optional="YES" attributeType="String"/>
         <attribute name="transPaymentMethod" optional="YES" attributeType="String"/>
@@ -28,7 +29,7 @@
         <attribute name="walletThumbBG" attributeType="Transformable"/>
     </entity>
     <elements>
-        <element name="Transaction" positionX="105.8386840820312" positionY="-37.7220458984375" width="128" height="164"/>
+        <element name="Transaction" positionX="105.8386840820312" positionY="-37.7220458984375" width="128" height="179"/>
         <element name="Wallet" positionX="-358.9405517578125" positionY="-43.11566162109375" width="177.85107421875" height="253"/>
     </elements>
 </model>

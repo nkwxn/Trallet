@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import CoreData
+import MapKit
 
 class CoreDataHelper {
     
@@ -141,7 +142,7 @@ class CoreDataHelper {
     }
     
     // MARK: - CREATE Methods for Transaction
-    func createTransaction(_ wallet: Wallet, for type: TransactionType, category: String, date transactionDate: Date, amount: Double, paymentMethod method: WalletStatusType, location: String? = nil, note: String? = nil, attachments: [UIImage]? = nil) {
+    func createTransaction(_ wallet: Wallet, for type: TransactionType, category: String, date transactionDate: Date, amount: Double, paymentMethod method: WalletStatusType, location: MKMapItem? = nil, note: String? = nil, attachments: [UIImage]? = nil) {
         let newTransaction = Transaction(context: context)
         
         // Mandatory fields
@@ -151,7 +152,6 @@ class CoreDataHelper {
         newTransaction.parentWallet = wallet
         newTransaction.transAmount = amount
         
-        newTransaction.transLocationKeyword = location
         newTransaction.transNotes = note
         
         if type == .expense {
@@ -164,14 +164,17 @@ class CoreDataHelper {
             newTransaction.transAttachments = attachments as NSObject
         }
         
+        if let location = location {
+            newTransaction.transLocationItem = location
+            newTransaction.transLocationKeyword = location.name
+        }
+        
         // Update Balance, Total Transaction, and / or CC Limit
         switch method {
         case .cash:
             updateWalletBalance(type, for: wallet, amount: amount)
         case .cc:
             updateCCExpense(type, for: wallet, amount: amount)
-        default:
-            print("unidentified")
         }
         
         transactionsArray.append(newTransaction)

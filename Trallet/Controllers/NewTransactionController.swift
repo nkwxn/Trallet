@@ -17,18 +17,20 @@ class NewTransactionController: UITableViewController {
     var amountMoney: Double?
     var paymentType: WalletStatusType? // can be used for payment type
     
-    // Optional Value
+    // Location, Notes, Attachments
     var locationItem: MKMapItem? {
         didSet {
             locationKeyword = locationItem?.name
         }
     }
+    
     var locationKeyword: String? {
         didSet {
             let rowTV = self.tableView.cellForRow(at: IndexPath(row: 2, section: 0))
             rowTV?.detailTextLabel?.text = locationKeyword
         }
     }
+    
     var notes: String?
     var attachments: [UIImage]?
     
@@ -74,7 +76,7 @@ class NewTransactionController: UITableViewController {
                     date: safeDateTime,
                     amount: safeAmount,
                     paymentMethod: safePaymentMethod,
-                    location: self.locationKeyword,
+                    location: self.locationItem,
                     note: self.notes,
                     attachments: self.attachments
                 )
@@ -195,24 +197,6 @@ class NewTransactionController: UITableViewController {
             // Perform segue open the category page
             self.performSegue(withIdentifier: "OpenCategory", sender: self)
         case 2:
-            /*
-            // Now: Show alert pop-up with text field
-            let alert = UIAlertController(title: "Enter Location", message: "Please enter some keywords regarding to the location you visited", preferredStyle: .alert)
-            alert.addTextField { textField in
-                textField.placeholder = "Keyword"
-                textField.keyboardType = .default
-            }
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Done", style: .default) { _ in
-                // Tambahkan interaksi ubah teks di accessory nya
-                if let alertInput = alert.textFields![0].text {
-                    tableView.cellForRow(at: indexPath)?.detailTextLabel?.text = alertInput
-                    
-                    self.locationKeyword = alertInput
-                }
-            })
-            self.present(alert, animated: true, completion: nil)
-            */
             
             // TODO: In the future put the code to perform segue open the mapview
             self.performSegue(withIdentifier: "openMap", sender: self)
@@ -300,6 +284,6 @@ extension NewTransactionController: DateTimeCategoryDelegate, TransactionAmountD
 extension NewTransactionController: SelectLocationDelegate {
     func locationSelected(_ location: MKMapItem) {
         print(location)
-        self.locationKeyword = location.name
+        self.locationItem = location
     }
 }
