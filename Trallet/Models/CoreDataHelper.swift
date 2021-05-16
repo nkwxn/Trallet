@@ -83,6 +83,10 @@ class CoreDataHelper {
     }
     
     // MARK: - UPDATE Methods for Wallet
+    func updateWalletInfo() {
+        
+    }
+    
     func updateWalletBalance(_ type: TransactionType, at index: Int, amount: Double) {
         let wallet = walletsArray[index]
         switch type {
@@ -245,7 +249,9 @@ class CoreDataHelper {
     }
     
     // MARK: - UPDATE Methods for Transaction
-    // Ini mending gimana yak...
+    func updateTransaction() {
+        
+    }
     
     // MARK: - DELETE Methods for Transaction
     func deleteTransaction(for wallet: Wallet) {
