@@ -8,6 +8,10 @@
 import UIKit
 import MapKit
 
+protocol TransactionUpdateDelegate {
+    func updateTransactionView(trx: Transaction)
+}
+
 class TransactionDetailController: UIViewController {
     @IBOutlet weak var transactionType: UILabel!
     @IBOutlet weak var transactionNotes: UILabel!
@@ -23,15 +27,43 @@ class TransactionDetailController: UIViewController {
     @IBOutlet weak var txtPaymentAmount: UILabel!
     
     @IBOutlet weak var attachmentCollectionView: UICollectionView!
+    
     var arrImages = [UIImage]()
     
+    var cdWallet: Wallet! {
+        didSet {
+            currencyCode = cdWallet.walletBaseCurrency
+        }
+    }
+    
     var currencyCode: String!
-    var cdTransaction: Transaction!
+    
+    var cdTransaction: Transaction! {
+        didSet {
+            arrImages = cdTransaction.transAttachments as? [UIImage] ?? [UIImage]()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loadData()
+        
+        // Collection View Flow Layout
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: attachmentCollectionView.frame.size.width / 3 - 2, height: attachmentCollectionView.frame.size.width / 3 - 2)
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumInteritemSpacing = 1
+        
+        // Set collection view layout
+        attachmentCollectionView.collectionViewLayout = layout
+        attachmentCollectionView.delegate = self
+        attachmentCollectionView.dataSource = self
+    }
+    
+    func loadData() {
         let numberFormat = NumberFormatter()
         numberFormat.numberStyle = .decimal
         numberFormat.minimumFractionDigits = 2
@@ -52,7 +84,6 @@ class TransactionDetailController: UIViewController {
         } else {
             // Set the pinpoint
             if let pinpoint = cdTransaction.transLocationItem as? MKMapItem {
-                let pinpoint = cdTransaction.transLocationItem as! MKMapItem
                 let annotation = LocationAnnotation(object: pinpoint)
                 transLocationMap.addAnnotation(annotation)
                 
@@ -79,20 +110,6 @@ class TransactionDetailController: UIViewController {
         txtPaymentAmount.text = "\(currencyCode!) \(numberFormat.string(from: NSNumber(value: cdTransaction.transAmount))!)"
         thumbIncomeExpense.image = cdTransaction.transType == "Income" ? UIImage(systemName: "plus.circle.fill") : UIImage(systemName: "minus.circle.fill")
         thumbIncomeExpense.tintColor = cdTransaction.transType == "Income" ? UIColor.systemGreen : UIColor.systemRed
-        
-        arrImages = cdTransaction.transAttachments as? [UIImage] ?? [UIImage]()
-        
-        // Collection View Flow Layout
-        let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: attachmentCollectionView.frame.size.width / 3 - 2, height: attachmentCollectionView.frame.size.width / 3 - 2)
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.minimumInteritemSpacing = 1
-        
-        // Set collection view layout
-        attachmentCollectionView.collectionViewLayout = layout
-        attachmentCollectionView.delegate = self
-        attachmentCollectionView.dataSource = self
     }
     
     @IBAction func btnDonePressed(_ sender: Any) {
@@ -105,7 +122,23 @@ class TransactionDetailController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        
+        if segue.identifier == "editTransaction" {
+            let navcon = segue.destination as! UINavigationController
+            let newTransView = navcon.viewControllers[0] as! NewTransactionController
+            newTransView.cdHelper = CoreDataHelper()
+//            newTransView.prevDelegate = self
+            newTransView.cdWallet = self.cdWallet
+            newTransView.transTBU = self.cdTransaction
+            
+        }
+    }
+}
+
+extension TransactionDetailController: TransactionUpdateDelegate {
+    func updateTransactionView(trx: Transaction) {
+        self.cdTransaction = trx
+        self.attachmentCollectionView.reloadData()
+        self.loadData()
     }
 }
 
@@ -139,8 +172,4 @@ extension TransactionDetailController: UICollectionViewDelegate, UICollectionVie
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         print("")
     }
-}
-
-extension TransactionDetailController: MKMapViewDelegate {
-    
 }

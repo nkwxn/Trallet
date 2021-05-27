@@ -168,15 +168,21 @@ class WalletDetailController: UITableViewController {
             let navcon = segue.destination as! UINavigationController
             let newTransView = navcon.viewControllers[0] as! NewTransactionController
             newTransView.cdHelper = self.cdHelper
-            newTransView.previousPage = self
+            newTransView.prevDelegate = self
             newTransView.cdWallet = self.cdWallet
         } else if segue.identifier == "viewTransactionDetail" {
             let navcon = segue.destination as! UINavigationController
             let transDetailView = navcon.viewControllers[0] as! TransactionDetailController
             guard let rowSelected = tableView.indexPathForSelectedRow else { return }
-            transDetailView.currencyCode = cdWallet.walletBaseCurrency
+            transDetailView.cdWallet = self.cdWallet
             transDetailView.cdTransaction = cdHelper.readAllTransactions(for: cdWallet)[rowSelected.section - 1][rowSelected.row]
         }
     }
     
+}
+
+extension WalletDetailController: PreviousPageDelegate {
+    func reloadTable() {
+        self.tableView.reloadData()
+    }
 }

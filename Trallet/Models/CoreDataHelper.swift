@@ -249,8 +249,23 @@ class CoreDataHelper {
     }
     
     // MARK: - UPDATE Methods for Transaction
-    func updateTransaction() {
-        
+    func updateTransaction(for transaction: Transaction, on wallet: Wallet, type: TransactionType, category: String, date transactionDate: Date, amount: Double, paymentMethod method: WalletStatusType, location: MKMapItem? = nil, note: String? = nil, attachments: [UIImage]? = nil) {
+        for (i, trans) in transactionsArray.enumerated() {
+            if trans == transaction {
+                // Should update specific transaction
+                let trx = transactionsArray[i]
+                trx.transType = type.rawValue
+                trx.transCategory = category
+                trx.transDateTime = transactionDate
+                trx.transAmount = amount
+                trx.transPaymentMethod = method.rawValue
+                trx.transLocationItem = location
+                
+                // Should also update the balance or the total income / expense
+                
+                save()
+            }
+        }
     }
     
     // MARK: - DELETE Methods for Transaction
