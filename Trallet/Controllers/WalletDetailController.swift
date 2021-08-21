@@ -176,6 +176,7 @@ class WalletDetailController: UITableViewController {
             guard let rowSelected = tableView.indexPathForSelectedRow else { return }
             transDetailView.cdWallet = self.cdWallet
             transDetailView.cdTransaction = cdHelper.readAllTransactions(for: cdWallet)[rowSelected.section - 1][rowSelected.row]
+            transDetailView.coreDataHlp = self.cdHelper
         }
     }
     

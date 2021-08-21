@@ -43,6 +43,8 @@ class TransactionDetailController: UIViewController {
             arrImages = cdTransaction.transAttachments as? [UIImage] ?? [UIImage]()
         }
     }
+    
+    var coreDataHlp: CoreDataHelper!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,7 +127,7 @@ class TransactionDetailController: UIViewController {
         if segue.identifier == "editTransaction" {
             let navcon = segue.destination as! UINavigationController
             let newTransView = navcon.viewControllers[0] as! NewTransactionController
-            newTransView.cdHelper = CoreDataHelper()
+            newTransView.cdHelper = coreDataHlp
 //            newTransView.prevDelegate = self
             newTransView.cdWallet = self.cdWallet
             newTransView.transTBU = self.cdTransaction
