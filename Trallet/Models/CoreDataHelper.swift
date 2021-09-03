@@ -11,14 +11,15 @@ import CoreData
 import MapKit
 
 class CoreDataHelper {
+    // singleton
+    static let shared = CoreDataHelper()
     
     // MARK: - Variables (Context and Arrays)
-    
     let context: NSManagedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // Array of Wallets and Transactions
-    var walletsArray = [Wallet]()
-    var transactionsArray = [Transaction]()
+    @Published var walletsArray = [Wallet]()
+    @Published var transactionsArray = [Transaction]()
     
     // DateFormatter to record if this created at the same day
     var dateFormat = DateFormatter()
@@ -137,11 +138,28 @@ class CoreDataHelper {
     // MARK: - DELETE Methods for Wallet
     func deleteWallet(at index: Int) {
         // Delete the transaction relates to the wallet
-        deleteTransaction(for: walletsArray[index])
+        deleteAllTransactions(for: walletsArray[index])
         
         // Delete the wallet and done
         context.delete(walletsArray[index])
         walletsArray.remove(at: index)
+        save()
+    }
+    
+    func deleteWallet(on offset: IndexSet) {
+        let walletToDelete = offset.map { wIndex in
+            self.walletsArray[wIndex]
+        }[0]
+        deleteAllTransactions(for: walletToDelete)
+        deleteWallet(for: walletToDelete)
+    }
+    
+    func deleteWallet(for wallet: Wallet) {
+        deleteAllTransactions(for: wallet)
+        context.delete(wallet)
+        walletsArray.removeAll { rmWallet in
+            rmWallet == wallet
+        }
         save()
     }
     
@@ -269,32 +287,10 @@ class CoreDataHelper {
     }
     
     // MARK: - DELETE Methods for Transaction
-    func deleteTransaction(for wallet: Wallet) {
-        let transactionRequest: NSFetchRequest<Transaction> = Transaction.fetchRequest()
-        
-        let predicate = NSPredicate(format: "parentWallet.walletName MATCHES %@", wallet.walletName!)
-        
-        transactionRequest.predicate = predicate
-
-        var sortedTransactions = [Transaction]()
-        
-        do {
-            sortedTransactions = try context.fetch(transactionRequest)
-        } catch {
-            print("Error fetching data from context \(error)")
+    func deleteAllTransactions(for wallet: Wallet) {
+        transactionsArray.removeAll { rmTrans in
+            rmTrans.parentWallet == wallet
         }
-        
-        for transaction in sortedTransactions {
-            guard let parentWallet = transaction.parentWallet else { return }
-            if parentWallet.isEqual(wallet) {
-                context.delete(sortedTransactions.last!)
-                sortedTransactions.removeLast()
-            }
-        }
-        
-        save()
-        
-        load()
     }
     
     // MARK: - Load all data to array of Subjects and Schedules

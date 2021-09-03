@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G80" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Transaction" representedClassName="Transaction" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Transaction" representedClassName=".Transaction" syncable="YES" codeGenerationType="class">
+        <attribute name="transactionID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="transAmount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="transAttachments" optional="YES" attributeType="Transformable"/>
         <attribute name="transCategory" attributeType="String"/>
@@ -12,7 +13,7 @@
         <attribute name="transType" attributeType="String"/>
         <relationship name="parentWallet" maxCount="1" deletionRule="Nullify" destinationEntity="Wallet"/>
     </entity>
-    <entity name="Wallet" representedClassName="Wallet" syncable="YES" codeGenerationType="class">
+    <entity name="Wallet" representedClassName=".Wallet" syncable="YES" codeGenerationType="class">
         <attribute name="conversionRate" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="walletBaseBalance" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="walletBaseCurrency" attributeType="String"/>
@@ -22,6 +23,7 @@
         <attribute name="walletCreditCardCurrency" optional="YES" attributeType="String"/>
         <attribute name="walletCreditCardExpense" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="walletCreditCardLimit" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="walletID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="walletName" attributeType="String"/>
         <attribute name="walletOriginConvertionCash" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="walletOriginCurrency" optional="YES" attributeType="String"/>
@@ -29,7 +31,7 @@
         <attribute name="walletThumbBG" attributeType="Transformable"/>
     </entity>
     <elements>
-        <element name="Transaction" positionX="105.8386840820312" positionY="-37.7220458984375" width="128" height="179"/>
-        <element name="Wallet" positionX="-358.9405517578125" positionY="-43.11566162109375" width="177.85107421875" height="253"/>
+        <element name="Transaction" positionX="105.8386840820312" positionY="-37.7220458984375" width="128" height="194"/>
+        <element name="Wallet" positionX="-358.9405517578125" positionY="-43.11566162109375" width="177.85107421875" height="254"/>
     </elements>
 </model>
