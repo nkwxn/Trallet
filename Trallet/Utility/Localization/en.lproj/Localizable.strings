@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Trallet
+
+  Created by Nicholas on 10/09/21.
+  
+*/
+
+"my_wallets" = "My Wallets";
+"traveling_really_soon" = "Traveling really soon? 🛫";
+"add_wallet_plus" = "Add your new wallet by clicking the + button on the top right corner";

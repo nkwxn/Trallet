@@ -9,7 +9,7 @@ import SwiftUI
 
 // MARK: - Thumbnail size mode
 enum ThumbMode: CGFloat {
-    case inline = 30
+    case inline = 35
     case grid = 90.0
 }
 
@@ -30,7 +30,7 @@ struct ThumbnailSquare: View {
             Text(imgDisplay)
                 .font(.system(size: thumbSize.rawValue))
                 .foregroundColor(.white)
-                .padding()
+                .padding(10)
         }
         .clipShape(RoundedRectangle(cornerRadius: 14, style: .circular))
         .aspectRatio(1, contentMode: .fill)

@@ -34,8 +34,8 @@ class TralletStorage: NSObject, ObservableObject {
     
     // initializer
     override init() {
-        let walletSort = NSSortDescriptor(key: "walletCreationDate", ascending: true)
-        let transSort = NSSortDescriptor(key: "transDateTime", ascending: true)
+        let walletSort = NSSortDescriptor(key: "walletCreationDate", ascending: false)
+        let transSort = NSSortDescriptor(key: "transDateTime", ascending: false)
         let walletFetchRequest: NSFetchRequest<Wallet> = Wallet.fetchRequest()
         let transactionFetchRequest: NSFetchRequest<Transaction> = Transaction
             .fetchRequest()
@@ -132,7 +132,12 @@ extension TralletStorage {
         save()
     }
     
-    // MARK: - DELETE methods for Wallet
+    // MARK: - UPDATE Wallet
+    func updateWalletInfo() {
+        
+    }
+    
+    // MARK: - DELETE functions for Wallet
     func deleteWallet(for wallet: Wallet) {
         deleteAllTransactions(for: wallet)
         context.delete(wallet)
@@ -145,7 +150,14 @@ extension TralletStorage {
 
 // MARK: - CRUD Methods for Transactions
 extension TralletStorage {
+    // MARK: - CREATE Transaction
     
+    // MARK: - READ Transactions filtered
+    func readTransactions(for wallet: Wallet) -> [Transaction] {
+        return transactions.value.filter { transactions in
+            transactions.parentWallet == wallet
+        }
+    }
     
     // MARK: - DELETE Methods for Transaction
     

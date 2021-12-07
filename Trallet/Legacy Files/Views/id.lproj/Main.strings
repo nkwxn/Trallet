@@ -1,0 +1,198 @@
+
+/* Class = "UILabel"; text = "IDR 100,000.00"; ObjectID = "18i-lJ-A4k"; */
+"18i-lJ-A4k.text" = "IDR 100,000.00";
+
+/* Class = "UINavigationItem"; title = "My Wallet Name"; ObjectID = "1QL-5E-TQl"; */
+"1QL-5E-TQl.title" = "My Wallet Name";
+
+/* Class = "UINavigationItem"; title = "View Transaction"; ObjectID = "1k5-Cb-9mg"; */
+"1k5-Cb-9mg.title" = "View Transaction";
+
+/* Class = "UITextField"; placeholder = "Currency"; ObjectID = "5Tg-fZ-Ul7"; */
+"5Tg-fZ-Ul7.placeholder" = "Currency";
+
+/* Class = "UILabel"; text = "THB"; ObjectID = "6EL-c5-k0i"; */
+"6EL-c5-k0i.text" = "THB";
+
+/* Class = "UILabel"; text = "Cash"; ObjectID = "6hg-Fv-bK0"; */
+"6hg-Fv-bK0.text" = "Cash";
+
+/* Class = "UITextField"; placeholder = "Currency"; ObjectID = "7D2-aC-ryI"; */
+"7D2-aC-ryI.placeholder" = "Currency";
+
+/* Class = "UILabel"; text = "IDR"; ObjectID = "7sj-2n-XG3"; */
+"7sj-2n-XG3.text" = "IDR";
+
+/* Class = "UILabel"; text = "Balance"; ObjectID = "9W9-GI-XfF"; */
+"9W9-GI-XfF.text" = "Balance";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "AYw-GN-Mla"; */
+"AYw-GN-Mla.text" = "---";
+
+/* Class = "UILabel"; text = "35,000.00"; ObjectID = "Cfk-4B-ycY"; */
+"Cfk-4B-ycY.text" = "35,000.00";
+
+/* Class = "UILabel"; text = "Transaction History"; ObjectID = "DpI-4Z-e51"; */
+"DpI-4Z-e51.text" = "Transaction History";
+
+/* Class = "UITextField"; placeholder = "Amount"; ObjectID = "EER-SZ-rUs"; */
+"EER-SZ-rUs.placeholder" = "Amount";
+
+/* Class = "UILabel"; text = " "; ObjectID = "HL9-4x-3Ma"; */
+"HL9-4x-3Ma.text" = " ";
+
+/* Class = "UILabel"; text = "THB 10,000.00"; ObjectID = "JV9-uE-fZk"; */
+"JV9-uE-fZk.text" = "THB 10,000.00";
+
+/* Class = "UILabel"; text = "Notes:"; ObjectID = "JtU-xF-tIf"; */
+"JtU-xF-tIf.text" = "Notes:";
+
+/* Class = "UILabel"; text = "---"; ObjectID = "JwO-gT-foo"; */
+"JwO-gT-foo.text" = "---";
+
+/* Class = "UINavigationItem"; title = "Select Location"; ObjectID = "K7P-kX-89Z"; */
+"K7P-kX-89Z.title" = "Select Location";
+
+/* Class = "UINavigationItem"; title = "View Image Attachment"; ObjectID = "KKl-3h-lmM"; */
+"KKl-3h-lmM.title" = "View Image Attachment";
+
+/* Class = "UINavigationItem"; title = "New Transaction"; ObjectID = "KNi-Br-KqG"; */
+"KNi-Br-KqG.title" = "New Transaction";
+
+/* Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "Kg6-lH-QDx"; */
+"Kg6-lH-QDx.title" = "Edit";
+
+/* Class = "UINavigationItem"; title = "New Wallet"; ObjectID = "MVr-1f-CWP"; */
+"MVr-1f-CWP.title" = "New Wallet";
+
+/* Class = "UITextField"; placeholder = "Amount"; ObjectID = "N2u-6c-me6"; */
+"N2u-6c-me6.placeholder" = "Amount";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "NCK-Yv-aKk"; */
+"NCK-Yv-aKk.text" = "Amount";
+
+/* Class = "UILabel"; text = "Attachments:"; ObjectID = "NI2-G5-uwK"; */
+"NI2-G5-uwK.text" = "Attachments:";
+
+/* Class = "UINavigationItem"; title = "Categories"; ObjectID = "Nlf-UV-qVV"; */
+"Nlf-UV-qVV.title" = "Categories";
+
+/* Class = "UILabel"; text = "Transaction Type"; ObjectID = "OaM-L4-QZp"; */
+"OaM-L4-QZp.text" = "Transaction Type";
+
+/* Class = "UISearchBar"; placeholder = "Search for Location"; ObjectID = "R5s-6f-Fjh"; */
+"R5s-6f-Fjh.placeholder" = "Search for Location";
+
+/* Class = "UILabel"; text = "Going Overseas?"; ObjectID = "Rru-vs-5vW"; */
+"Rru-vs-5vW.text" = "Going Overseas?";
+
+/* Class = "UINavigationItem"; title = "Select Icon"; ObjectID = "SD5-ih-4nD"; */
+"SD5-ih-4nD.title" = "Select Icon";
+
+/* Class = "UILabel"; text = "Exchange Rate"; ObjectID = "TXW-3f-5Xo"; */
+"TXW-3f-5Xo.text" = "Exchange Rate";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "Tw0-lB-eWm"; */
+"Tw0-lB-eWm.text" = "Location";
+
+/* Class = "UILabel"; text = "Wallet Status"; ObjectID = "U9z-DT-Ofp"; */
+"U9z-DT-Ofp.text" = "Wallet Status";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "UXv-ba-Ral"; */
+"UXv-ba-Ral.text" = "Title";
+
+/* Class = "UILabel"; text = "Attachments"; ObjectID = "Xch-nv-E7Y"; */
+"Xch-nv-E7Y.text" = "Attachments";
+
+/* Class = "UINavigationItem"; title = "My Trip Wallets"; ObjectID = "XmX-sD-zRw"; */
+"XmX-sD-zRw.title" = "My Trip Wallets";
+
+/* Class = "UILabel"; text = "Dompet Indo"; ObjectID = "YOt-DC-Lu5"; */
+"YOt-DC-Lu5.text" = "Dompet Indo";
+
+/* Class = "UILabel"; text = "IDR 1,000,000.00"; ObjectID = "Yab-8F-pu3"; */
+"Yab-8F-pu3.text" = "IDR 1,000,000.00";
+
+/* Class = "UILabel"; text = "Notes"; ObjectID = "ZBE-XO-Yaa"; */
+"ZBE-XO-Yaa.text" = "Notes";
+
+/* Class = "UILabel"; text = "Category"; ObjectID = "ZLu-XF-45G"; */
+"ZLu-XF-45G.text" = "Category";
+
+/* Class = "UILabel"; text = "35,000.00"; ObjectID = "c5r-8n-IYS"; */
+"c5r-8n-IYS.text" = "35,000.00";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "cbE-RC-kYa"; */
+"cbE-RC-kYa.title" = "Done";
+
+/* Class = "UILabel"; text = "THB 10,000.00"; ObjectID = "dpc-p7-EOa"; */
+"dpc-p7-EOa.text" = "THB 10,000.00";
+
+/* Class = "UILabel"; text = "Cash"; ObjectID = "eDe-Lh-TBq"; */
+"eDe-Lh-TBq.text" = "Cash";
+
+/* Class = "UILabel"; text = "DI"; ObjectID = "ezD-Fh-xR9"; */
+"ezD-Fh-xR9.text" = "DI";
+
+/* Class = "UISegmentedControl"; fq8-jv-UQE.segmentTitles[0] = "Text / Emoji"; ObjectID = "fq8-jv-UQE"; */
+"fq8-jv-UQE.segmentTitles[0]" = "Text / Emoji";
+
+/* Class = "UISegmentedControl"; fq8-jv-UQE.segmentTitles[1] = "Background"; ObjectID = "fq8-jv-UQE"; */
+"fq8-jv-UQE.segmentTitles[1]" = "Background";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "gIy-DP-ubx"; */
+"gIy-DP-ubx.title" = "Item";
+
+/* Class = "UILabel"; text = "Amount of cash exchanged"; ObjectID = "gu3-dD-Qkj"; */
+"gu3-dD-Qkj.text" = "Amount of cash exchanged";
+
+/* Class = "UITextField"; placeholder = "Wallet Name"; ObjectID = "ieW-Nw-mCX"; */
+"ieW-Nw-mCX.placeholder" = "Wallet Name";
+
+/* Class = "UILabel"; text = "To"; ObjectID = "jAk-Ap-T4c"; */
+"jAk-Ap-T4c.text" = "To";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "jny-Zj-tEd"; */
+"jny-Zj-tEd.normalTitle" = "Edit";
+
+/* Class = "UILabel"; text = "THB"; ObjectID = "kyv-hg-9Lg"; */
+"kyv-hg-9Lg.text" = "THB";
+
+/* Class = "UITextField"; placeholder = "Currency"; ObjectID = "lNa-jx-t6T"; */
+"lNa-jx-t6T.placeholder" = "Currency";
+
+/* Class = "UITextField"; placeholder = "Amount"; ObjectID = "mfR-aT-rrO"; */
+"mfR-aT-rrO.placeholder" = "Amount";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "nCo-AR-BCt"; */
+"nCo-AR-BCt.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "Current Balance:"; ObjectID = "o0e-qu-t6q"; */
+"o0e-qu-t6q.text" = "Current Balance:";
+
+/* Class = "UILabel"; text = "Date & Time"; ObjectID = "oBP-89-LgJ"; */
+"oBP-89-LgJ.text" = "Date & Time";
+
+/* Class = "UILabel"; text = "Payment Method:"; ObjectID = "oxD-UG-yuH"; */
+"oxD-UG-yuH.text" = "Payment Method:";
+
+/* Class = "UILabel"; text = "Cash exchanged on"; ObjectID = "qVl-BO-JMh"; */
+"qVl-BO-JMh.text" = "Cash exchanged on";
+
+/* Class = "UILabel"; text = "Amount of cash converted from"; ObjectID = "raw-Ve-fu8"; */
+"raw-Ve-fu8.text" = "Amount of cash converted from";
+
+/* Class = "UIButton"; normalTitle = "Add Image"; ObjectID = "t7C-A4-uFs"; */
+"t7C-A4-uFs.normalTitle" = "Add Image";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "wTn-x7-1P0"; */
+"wTn-x7-1P0.text" = "Title";
+
+/* Class = "UILabel"; text = "Amount of cash"; ObjectID = "wpL-19-zqC"; */
+"wpL-19-zqC.text" = "Amount of cash";
+
+/* Class = "UILabel"; text = "Total Income"; ObjectID = "xty-Vi-1TM"; */
+"xty-Vi-1TM.text" = "Total Income";
+
+/* Class = "UILabel"; text = "Total Expense"; ObjectID = "ypm-yT-OKm"; */
+"ypm-yT-OKm.text" = "Total Expense";

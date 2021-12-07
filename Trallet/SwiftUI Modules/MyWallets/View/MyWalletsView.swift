@@ -14,7 +14,7 @@ struct MyWalletsView: View {
     var body: some View {
         NavigationView {
             listView
-                .navigationTitle("My Trip Wallets")
+                .navigationTitle("my_wallets")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
@@ -25,7 +25,7 @@ struct MyWalletsView: View {
                     }
                     ToolbarItem(placement: .primaryAction) {
                         Button {
-                            viewModel.showNewEditWalletModal.toggle()
+                            viewModel.showAddEditWallet()
                         } label: {
                             Image(systemName: "plus")
                         }
@@ -34,16 +34,11 @@ struct MyWalletsView: View {
                         EditButton()
                     }
                 }
-                .popover(isPresented: $viewModel.showNewEditWalletModal) {
-                    AddEditWalletView(firstViewModel: self.viewModel)
-                }
-                .onAppear {
-                    // Temporary code. Replace this when SwiftUI 3.0 released
-                    UITableView.appearance().backgroundColor = UIColor(named: "app_background")
-                    UITableView.appearance().separatorStyle = .none
-                    
-                    // Load table
-                    print("view appear")
+                .sheet(
+                    isPresented: $viewModel
+                        .showNewEditWalletModal
+                ) {
+                    AddEditWalletView(wallet: viewModel.walletToUpdate)
                 }
                 .onDisappear {
                     print("view disappear")
@@ -60,6 +55,7 @@ struct MyWalletsView: View {
                 walletGrid
             } else {
                 walletList
+                    .listStyle(PlainListStyle())
             }
         }
     }
@@ -70,11 +66,11 @@ struct MyWalletsView: View {
                 .ignoresSafeArea()
             VStack(spacing: 8) {
                 Spacer()
-                Text("Traveling really soon? 🛫")
+                Text("traveling_really_soon")
                     .font(.title3)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
-                Text("Add your new wallet by clicking the + button on the top right corner")
+                Text("add_wallet_plus")
                     .multilineTextAlignment(.center)
                 Spacer()
             }
@@ -92,17 +88,18 @@ struct MyWalletsView: View {
             ) { (idx, wallet) in
                 ZStack {
                     NavigationLink(
-                        destination: WalletInfoView()) {
+                        destination: WalletInfoView(wallet: wallet)) {
                         EmptyView()
                             .cornerRadius(14)
                     }
+                    .opacity(0)
                     WalletRowInline(
-                        walletData: $viewModel.wallets[idx]
+                        walletData: viewModel.wallets[idx]
                     )
                 }
                 .contextMenu(ContextMenu {
                     Button {
-                        print("Should edit \(wallet.walletName!)")
+                        viewModel.showAddEditWallet(for: wallet)
                     } label: {
                         Image(systemName: "square.and.pencil")
                         Text("Edit")
@@ -115,8 +112,9 @@ struct MyWalletsView: View {
                         Text("Delete")
                     }
                 })
-                .listStyle(PlainListStyle())
+                .listRowSeparator(.hidden)
                 .listRowBackground(Color("app_background"))
+                .background(Color("app_background").ignoresSafeArea())
             }
             // Replace this when SwiftUI 3.0 is released
             .onDelete(
@@ -139,7 +137,7 @@ struct MyWalletsView: View {
                             viewModel.wallets.enumerated()
                         ),
                         id: \.0) { (idx, wallet) in
-                        WalletRowGrid(walletData: $viewModel.wallets[idx])
+                        WalletRowGrid(walletData: viewModel.wallets[idx])
                     }
                 }
                 .padding()

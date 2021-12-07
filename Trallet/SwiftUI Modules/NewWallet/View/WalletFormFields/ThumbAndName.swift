@@ -12,6 +12,7 @@ struct ThumbAndName: View {
     @Binding var walletName: String
     @Binding var thumbIcn: String
     @Binding var thumbBG: UIColor
+    var onPressAction: () -> Void
     
     var body: some View {
         VStack {
@@ -22,8 +23,7 @@ struct ThumbAndName: View {
                     .foregroundColor(.accentColor)
             }
             .onTapGesture {
-                print("Edit thumb pressed")
-                // show modal to edit profile thumb
+                onPressAction()
             }
             TextField("Wallet Name", text: $walletName)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -35,6 +35,8 @@ struct ThumbAndName: View {
 
 struct ThumbAndName_Previews: PreviewProvider {
     static var previews: some View {
-        ThumbAndName(walletName: .constant(""), thumbIcn: .constant("a"), thumbBG: .constant(UIColor.blue))
+        ThumbAndName(walletName: .constant(""), thumbIcn: .constant("a"), thumbBG: .constant(UIColor.blue)) {
+            print("Pressed")
+        }
     }
 }

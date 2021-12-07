@@ -13,6 +13,7 @@ class WalletsViewModel: ObservableObject {
     @Published var showNewEditWalletModal = false
     @Published var viewAsGrid = false
     let cdHelper = TralletStorage.shared
+    @Published var walletToUpdate: Wallet?
     
     // Array of wallets shown
     @Published var wallets: [Wallet] = [] {
@@ -31,6 +32,11 @@ class WalletsViewModel: ObservableObject {
         cancellable = walletPublisher.sink { wallets in
             self.wallets = wallets
         }
+    }
+    
+    func showAddEditWallet(for wallet: Wallet? = nil) {
+        showNewEditWalletModal.toggle()
+        walletToUpdate = wallet
     }
     
     func deleteWallet(on offset: IndexSet) {

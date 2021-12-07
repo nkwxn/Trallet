@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct WalletRowInline: View {
-    @Binding var walletData: Wallet
+    var walletData: Wallet
     @StateObject var viewModel = WalletRowViewModel()
     
     var body: some View {
-        HStack {
+        HStack(spacing: 10) {
             ThumbnailSquare(
                 .inline,
                 disp: .constant(viewModel.getWalletThumb(wallet: walletData)),
@@ -32,7 +32,6 @@ struct WalletRowInline: View {
         }
         .background(Color("card_background"))
         .cornerRadius(14)
-        .background(Color("app_background"))
     }
 }
 

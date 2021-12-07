@@ -10,9 +10,11 @@ import SwiftUI
 struct AddEditWalletView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var firstViewModel: WalletsViewModel
-    @State var updatingWallet: Wallet?
-    @StateObject var viewModel = AddEditWalletViewModel()
+    @ObservedObject var viewModel: AddEditWalletViewModel
+    
+    init(wallet forUpdate: Wallet?) {
+        self.viewModel = AddEditWalletViewModel(wallet: forUpdate)
+    }
         
     var body: some View {
         NavigationView {
@@ -21,7 +23,9 @@ struct AddEditWalletView: View {
                     walletName: $viewModel.walletName,
                     thumbIcn: $viewModel.thumbnailString,
                     thumbBG: $viewModel.thumbnailColor
-                )
+                ) {
+                    viewModel.isEditingThumb.toggle()
+                }
                 Toggle("Going overseas?", isOn: $viewModel.isGoingOverseas)
                     .listRowBackground(Color("app_background"))
                     .padding(.vertical, 7)
@@ -44,7 +48,10 @@ struct AddEditWalletView: View {
                     AmountMoneyInput(labelValue: "Credit Card Limit", baseCurrency: $viewModel.homeCurrency, amount: $viewModel.ccLimit)
                 }
             }
-            .navigationBarTitle("New Wallet", displayMode: .inline)
+            .navigationBarTitle(
+                viewModel.walletToUpdate != nil ? "Update Wallet" : "New Wallet",
+                displayMode: .inline
+            )
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
@@ -54,9 +61,16 @@ struct AddEditWalletView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
                         // add syntax to add / update
+                        viewModel.onDoneButtonPressed()
                         presentationMode.wrappedValue.dismiss()
                     }
                 }
+            }
+            .sheet(
+                isPresented: $viewModel
+                    .isEditingThumb
+            ) {
+                EditThumbView(thumbTxt: viewModel.thumbnailString, background: viewModel.thumbnailColor)
             }
         }
     }
@@ -64,6 +78,6 @@ struct AddEditWalletView: View {
 
 struct NewWalletView_Previews: PreviewProvider {
     static var previews: some View {
-        AddEditWalletView(firstViewModel: WalletsViewModel())
+        AddEditWalletView(wallet: nil)
     }
 }
