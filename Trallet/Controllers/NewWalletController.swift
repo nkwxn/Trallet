@@ -162,15 +162,15 @@ class NewWalletController: UITableViewController {
         case 0:
             return 200.0
         case 2:
-            return goingOverseas ? 0.0 : 85.0
+            return goingOverseas ? 0.1 : 85.0
         case 3:
             // Date Picker
 //            return goingOverseas ? 57 : 0.0
             return 0
         case 4:
-            return goingOverseas ? 225 : 0
+            return goingOverseas ? 225 : 0.1
         case 6:
-            return planningUseCC ? 85.0 : 0
+            return planningUseCC ? 85.0 : 0.1
         default:
             return 53.0
         }

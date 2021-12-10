@@ -43,6 +43,7 @@ class SwitchCell: UITableViewCell {
 
     @IBAction func switchValueChanged(_ sender: UISwitch) {
         // Identify which enum and change bool value
+        print(sender.isOn)
         switch switchEnum {
         case .goingOverseas:
             newWalletView.goingOverseas = sender.isOn

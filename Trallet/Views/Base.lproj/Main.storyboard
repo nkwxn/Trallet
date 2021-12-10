@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fL4-78-GBw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fL4-78-GBw">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -21,7 +21,7 @@
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WalletView" rowHeight="116" id="A3A-Y2-avN" customClass="WalletCell" customModule="Trallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="116"/>
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="116"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A3A-Y2-avN" id="Vzc-vo-36k">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="116"/>
@@ -182,14 +182,14 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="elV-zq-WAO">
-                                <rect key="frame" x="16" y="193.66666666666669" width="20" height="19"/>
+                                <rect key="frame" x="16" y="193.33333333333334" width="20" height="19.000000000000014"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" id="MwJ-kB-ys4"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tw0-lB-eWm">
-                                <rect key="frame" x="44" y="192.33333333333334" width="330" height="20.333333333333343"/>
+                                <rect key="frame" x="44" y="192.33333333333334" width="330" height="20.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" id="OLw-zZ-BG1"/>
                                 </constraints>
@@ -198,7 +198,7 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attachments:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NI2-G5-uwK">
-                                <rect key="frame" x="16" y="592" width="358" height="21"/>
+                                <rect key="frame" x="16" y="626" width="358" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -217,13 +217,13 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                 </constraints>
                             </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="235" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kE9-SL-imM">
-                                <rect key="frame" x="16" y="220.66666666666666" width="358" height="363.33333333333337"/>
+                                <rect key="frame" x="16" y="221" width="358" height="397"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="500" id="TDl-H1-MMI"/>
                                 </constraints>
                             </mapView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gtx-Uh-NQp">
-                                <rect key="frame" x="16" y="621" width="358" height="135"/>
+                                <rect key="frame" x="16" y="655" width="358" height="135"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="135" id="GhV-op-7fa"/>
@@ -342,7 +342,7 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Fg-gr-84q">
-                                <rect key="frame" x="0.0" y="56" width="390" height="700"/>
+                                <rect key="frame" x="0.0" y="56" width="390" height="734"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bw7-T7-aaD"/>
@@ -659,23 +659,23 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DateTimePicker" id="ieh-cy-Ojx" customClass="DateTimePickerCell" customModule="Trallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92.666667938232422" width="390" height="117.33333587646484"/>
+                                <rect key="frame" x="0.0" y="92.666667938232422" width="390" height="119.66666412353516"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ieh-cy-Ojx" id="6xH-3Y-iq0">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="117.33333587646484"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="119.66666412353516"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="FZ7-C9-9RU">
-                                            <rect key="frame" x="20" y="11" width="350" height="95.333333333333329"/>
+                                            <rect key="frame" x="20" y="11" width="350" height="97.666666666666671"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date &amp; Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBP-89-LgJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="94" height="95.333333333333329"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="94" height="97.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="zww-x2-bDO">
-                                                    <rect key="frame" x="94" y="0.0" width="256" height="95.333333333333329"/>
+                                                    <rect key="frame" x="94" y="0.0" width="256" height="97.666666666666671"/>
                                                     <color key="tintColor" name="AccentColor"/>
                                                     <connections>
                                                         <action selector="dateValueChanged:" destination="ieh-cy-Ojx" eventType="valueChanged" id="C8s-rZ-u9C"/>
@@ -699,7 +699,7 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AmountSpent" rowHeight="86" id="MU4-Lh-8le" customClass="TransactionAmountSpentCell" customModule="Trallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="210.00000381469727" width="390" height="86"/>
+                                <rect key="frame" x="0.0" y="212.33333206176758" width="390" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MU4-Lh-8le" id="46g-EO-f0l">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="86"/>
@@ -749,7 +749,7 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Notes" rowHeight="86" id="TdU-XG-iqm" customClass="TransactionNotesCell" customModule="Trallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="296.00000381469727" width="390" height="86"/>
+                                <rect key="frame" x="0.0" y="298.33333206176758" width="390" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TdU-XG-iqm" id="Oce-52-27w">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="86"/>
@@ -788,7 +788,7 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AttachmentRow" rowHeight="159" id="wh6-iH-meg" customClass="AttachmentCell" customModule="Trallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="382.00000381469727" width="390" height="159"/>
+                                <rect key="frame" x="0.0" y="384.33333206176758" width="390" height="159"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wh6-iH-meg" id="pdJ-r8-zcB">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="159"/>
@@ -1610,7 +1610,7 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" textLabel="UXv-ba-Ral" detailTextLabel="nCo-AR-BCt" rowHeight="80" style="IBUITableViewCellStyleSubtitle" id="5oP-OP-qoW">
-                                                <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="80"/>
+                                                <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5oP-OP-qoW" id="kFv-ax-7w7">
                                                     <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
@@ -1774,7 +1774,7 @@ Q2FyZEJhY2tncm91bmQQQ29sb3I
         <image name="arrow.left.arrow.right" catalog="system" width="119" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="location" catalog="system" width="128" height="121"/>
+        <image name="location" catalog="system" width="128" height="118"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>

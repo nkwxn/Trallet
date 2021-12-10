@@ -64,11 +64,9 @@ extension AttachmentCell: UICollectionViewDelegate, UICollectionViewDataSource, 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.editedImage] as? UIImage {
             imgArray?.append(image)
-            print(imgArray!)
             delegate?.sendAttachments(imgArray)
         } else if let image = info[.originalImage] as? UIImage {
             imgArray?.append(image)
-            print(imgArray!)
             delegate?.sendAttachments(imgArray)
         }
         imagePicker.dismiss(animated: true) {
