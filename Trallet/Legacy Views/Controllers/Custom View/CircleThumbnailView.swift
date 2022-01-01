@@ -7,6 +7,7 @@
 
 import UIKit
 
+@IBDesignable
 class CircleThumbnailView: UIView {
     
     func angleToRadian(angle: CGFloat) -> CGFloat {

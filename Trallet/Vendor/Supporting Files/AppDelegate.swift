@@ -13,6 +13,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Navigation Bar Appearance
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = UIColor(named: "card_background_color")
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.label]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.label]
+        
+        // Set to different view (large title, regular title, scroll, etc)
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.tintColor = UIColor(named: "AccentColor")
+        navBarAppearance.standardAppearance = appearance
+        navBarAppearance.compactAppearance = appearance
+        navBarAppearance.scrollEdgeAppearance = appearance
+        
         return true
     }
 
