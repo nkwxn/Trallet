@@ -17,11 +17,13 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Camera is needed to take a picture for your transaceion attachment</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Access to your location is required to improve your search result</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Access to a photo library is needed to pick images for your transaction attachment</string>
 	<key>UIApplicationSceneManifest</key>

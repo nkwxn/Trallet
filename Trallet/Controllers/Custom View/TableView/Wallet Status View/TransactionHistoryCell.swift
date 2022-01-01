@@ -21,17 +21,17 @@ protocol MaskedCorner {
 // MARK: - Implementation for MaskedCorner
 extension MaskedCorner {
     func maskTopOnlyRoundedCorner(for view: UIView) {
-        view.layer.cornerRadius = CGFloat(8.0)
+        view.layer.cornerRadius = CGFloat(12.0)
         view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
     func maskBottomOnlyRoundedCorner(for view: UIView) {
-        view.layer.cornerRadius = CGFloat(8.0)
+        view.layer.cornerRadius = CGFloat(12.0)
         view.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
     
     func maskAllRoundedCorner(for view: UIView) {
-        view.layer.cornerRadius = 8
+        view.layer.cornerRadius = 12
         view.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
     }
 }
