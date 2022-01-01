@@ -36,7 +36,7 @@ class NewTransactionController: UITableViewController {
     }
     
     var notes: String?
-    var attachments: [UIImage]?
+    var attachments: [UIImage]? = [UIImage]()
     
     // Data passed through and set into a controller
     var prevDelegate: PreviousPageDelegate?
@@ -240,8 +240,8 @@ class NewTransactionController: UITableViewController {
             
             // Configure the cell...
             cell.relatedView = self
-            //            cell.delegate = self
-            cell.imgArray = attachments
+            cell.delegate = self
+//            cell.imgArray = attachments
             
             return cell
         default:

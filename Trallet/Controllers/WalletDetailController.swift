@@ -177,6 +177,13 @@ class WalletDetailController: UITableViewController {
             transDetailView.cdWallet = self.cdWallet
             transDetailView.cdTransaction = cdHelper.readAllTransactions(for: cdWallet)[rowSelected.section - 1][rowSelected.row]
             transDetailView.coreDataHlp = self.cdHelper
+        } else if segue.identifier == "updateWallet" {
+            let navCon = segue.destination as! UINavigationController
+            let newWallet = navCon.viewControllers[0] as! NewWalletController
+            
+            // ini buat nge nil
+            newWallet.walletCollections = nil
+            newWallet.cdHelper = self.cdHelper
         }
     }
     
@@ -185,5 +192,9 @@ class WalletDetailController: UITableViewController {
 extension WalletDetailController: PreviousPageDelegate {
     func reloadTable() {
         self.tableView.reloadData()
+        
+        // add function to update the content
+        let id = cdWallet.id
+        cdWallet = cdHelper.getSpecificWallet(id)
     }
 }

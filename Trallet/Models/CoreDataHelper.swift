@@ -82,6 +82,10 @@ class CoreDataHelper {
         return walletsArray[index]
     }
     
+    func getSpecificWallet(_ id: ObjectIdentifier) -> Wallet {
+        return walletsArray.filter { $0.id == id }[0]
+    }
+    
     // MARK: - UPDATE Methods for Wallet
     func updateWalletInfo() {
         

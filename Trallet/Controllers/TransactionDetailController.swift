@@ -132,6 +132,8 @@ class TransactionDetailController: UIViewController {
             newTransView.cdWallet = self.cdWallet
             newTransView.transTBU = self.cdTransaction
             
+        } else if segue.identifier == "viewAttachment" {
+            print("N/A")
         }
     }
 }
