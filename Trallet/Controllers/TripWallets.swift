@@ -6,6 +6,19 @@
 //
 
 import UIKit
+import SwiftUI
+
+struct TripWalletsSwiftUIWrapper: UIViewControllerRepresentable {
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
+
+    }
+
+    func makeUIViewController(context: Context) -> UINavigationController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let wallets = storyboard.instantiateViewController(withIdentifier: "TripWallets") as! TripWallets
+        return UINavigationController(rootViewController: wallets)
+    }
+}
 
 class TripWallets: UITableViewController {
     var cdHelper = CoreDataHelper()

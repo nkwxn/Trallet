@@ -14,7 +14,7 @@
         <!--My Trip Wallets-->
         <scene sceneID="H3v-vE-kL5">
             <objects>
-                <tableViewController id="ugy-uK-pvM" customClass="TripWallets" customModule="Trallet" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TripWallets" id="ugy-uK-pvM" customClass="TripWallets" customModule="Trallet" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="s2w-eX-hj0">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

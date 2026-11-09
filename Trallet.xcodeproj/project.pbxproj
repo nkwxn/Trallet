@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F3F183430A1AAB900E2EE64 /* TabContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3F183330A1AAB900E2EE64 /* TabContainerView.swift */; };
 		D51B2ED6263C19B2004D5413 /* CurrencyPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B2ED5263C19B2004D5413 /* CurrencyPicker.swift */; };
 		D51B2ED8263C4522004D5413 /* MoneyConversionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51B2ED7263C4522004D5413 /* MoneyConversionCell.swift */; };
 		D52165F1264920430038BAD1 /* SelectLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52165F0264920430038BAD1 /* SelectLocationViewController.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F3F183330A1AAB900E2EE64 /* TabContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContainerView.swift; sourceTree = "<group>"; };
 		D51B2ED5263C19B2004D5413 /* CurrencyPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPicker.swift; sourceTree = "<group>"; };
 		D51B2ED7263C4522004D5413 /* MoneyConversionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyConversionCell.swift; sourceTree = "<group>"; };
 		D52165F0264920430038BAD1 /* SelectLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLocationViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F3F183130A1AA8600E2EE64 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				4F3F183230A1AA9000E2EE64 /* Tab Container */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		4F3F183230A1AA9000E2EE64 /* Tab Container */ = {
+			isa = PBXGroup;
+			children = (
+				4F3F183330A1AAB900E2EE64 /* TabContainerView.swift */,
+			);
+			path = "Tab Container";
+			sourceTree = "<group>";
+		};
 		D529A75026391F93009D118A = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +136,7 @@
 		D529A75B26391F93009D118A /* Trallet */ = {
 			isa = PBXGroup;
 			children = (
+				4F3F183130A1AA8600E2EE64 /* Features */,
 				D5B8E97D263A630900BC192F /* Supporting Files */,
 				D5B8E97C263A62F500BC192F /* Models */,
 				D5B8E978263A629800BC192F /* Views */,
@@ -183,8 +202,8 @@
 			children = (
 				D5B8E998263A8CD800BC192F /* Custom View */,
 				D529A76026391F93009D118A /* TripWallets.swift */,
-				D5B8E984263A652100BC192F /* NewWalletController.swift */,
 				D5B8E987263A676E00BC192F /* WalletThumbnailController.swift */,
+				D5B8E984263A652100BC192F /* NewWalletController.swift */,
 				D5B8E98A263A69C600BC192F /* WalletDetailController.swift */,
 				D5B8E98D263A6B1C00BC192F /* NewTransactionController.swift */,
 				D5B8E990263A6B4600BC192F /* TransactionCategoriesController.swift */,
@@ -340,6 +359,7 @@
 				D5664E0D263C0D6200DCB7F6 /* AmountMoneyCell.swift in Sources */,
 				D529A75F26391F93009D118A /* SceneDelegate.swift in Sources */,
 				D5B8E99B263A8D1100BC192F /* CircleThumbnailView.swift in Sources */,
+				4F3F183430A1AAB900E2EE64 /* TabContainerView.swift in Sources */,
 				D5B8E99F263A8D3400BC192F /* NewWalletHeaderCell.swift in Sources */,
 				D560D141264105EB00F284BB /* TableCollectionViewExtension.swift in Sources */,
 				D5B8E991263A6B4700BC192F /* TransactionCategoriesController.swift in Sources */,
@@ -486,6 +506,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = SCZQ3M4JVY;
 				INFOPLIST_FILE = "Trallet/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -507,6 +528,7 @@
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = SCZQ3M4JVY;
 				INFOPLIST_FILE = "Trallet/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
